@@ -31,7 +31,7 @@ namespace Player
 		private void OnInteract(InputAction.CallbackContext context)
 		{
 			var current = _instrumentPointer.Current;
-			if (null == current || current.IsMinigameActive)
+			if (null == current)
 				return;
 			InstrumentActivated?.Invoke(current);
 			current.Activate();

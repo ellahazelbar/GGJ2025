@@ -7,15 +7,11 @@ namespace Instruments
 {
     public class InstrumentMinigame : MonoBehaviour
     {
-        public RectTransform TimelineParent;
-        public InstrumentMinigameTimeline Timeline;
-        public AnimationCurve CanvasScale;
-        public float OpenTime;
-
+        public Timeline Timeline;
         public InstrumentType Type;
 
+        public UnityEngine.UI.Image ToasterImage;
         public float ToasterTime;
-
 
         private bool recording;
         private Song.Interval currentPlayedInterval;
@@ -60,9 +56,11 @@ namespace Instruments
                 {
                     //set toaster accordingly
                     float toasterFill = (ToasterTime - toWait) / ToasterTime;
-                    Debug.Log($"Toasting {toasterFill}!", this);
+                    ToasterImage.fillAmount = toasterFill;
+                    //Debug.Log($"Toasting {toasterFill}!", this);
                 }
             }
+            else ToasterImage.fillAmount = 0;
         }
 
         public void Activate(InstrumentType Type)

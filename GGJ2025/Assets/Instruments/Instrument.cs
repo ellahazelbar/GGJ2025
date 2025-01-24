@@ -7,16 +7,18 @@ namespace Instruments
         public InstrumentMinigame Minigame;
         public InstrumentType Type;
 
-        public bool IsMinigameActive { get { return Minigame.Timeline.gameObject.activeInHierarchy; } }
+        private bool active;
 
         public void Activate()
         {
+            if (active) return;
+            active = true;
             Minigame.Activate(Type);
         }
 
         public void Deactivate()
         {
-
+            active = false;
         }
     }
 }
