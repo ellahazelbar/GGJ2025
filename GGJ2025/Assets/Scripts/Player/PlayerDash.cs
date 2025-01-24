@@ -1,0 +1,49 @@
+using DG.Tweening;
+using System;
+using TNRD.Autohook;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Player
+{
+	public class PlayerDash : MonoBehaviour
+	{
+		[SerializeField, AutoHook] private PlayerMove _playerMove;
+		[SerializeField] private float _speedMult = 2f;
+		[SerializeField] private float _duration = 0.25f;
+		[SerializeField] private float _cooldown = 1f;
+		[SerializeField] private AnimationCurve _easeType;
+		private float _lastDashTime;
+		private float _defaultSpeed;
+
+		private bool CanDash => Time.time >= _lastDashTime + _cooldown;
+
+		private void Awake()
+		{
+			_defaultSpeed = _playerMove.Speed;
+		}
+
+		private void OnEnable()
+		{
+			PlayerManager.Instance.Input.House.Dash.performed += OnDash;
+		}
+
+		private void OnDisable()
+		{
+			PlayerManager.Instance.Input.House.Move.performed -= OnDash;
+		}
+
+		private void OnDash(InputAction.CallbackContext context)
+		{
+			if (!CanDash)
+				return;
+			_lastDashTime = Time.time;
+			DOTween.To(startValue: _defaultSpeed, endValue: _defaultSpeed * _speedMult, setter: speed => _playerMove.Speed = speed, duration: _duration).SetEase(_easeType).OnComplete(OnDashComplete);
+		}
+
+		private void OnDashComplete()
+		{
+			_playerMove.Speed = _defaultSpeed;
+		}
+	}
+}
