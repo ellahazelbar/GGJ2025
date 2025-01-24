@@ -1,0 +1,112 @@
+Character.png
+size:1965,1886
+filter:Linear,Linear
+pma:true
+A
+bounds:0,1745,170,141
+Alice Back Arm
+bounds:510,1290,259,255
+Alice Back Hand
+bounds:1362,1734,152,201
+rotate:90
+Alice Back Leg
+bounds:251,1555,284,188
+Alice Body
+bounds:1417,777,540,458
+Alice Front Arm
+bounds:771,1279,258,260
+rotate:90
+Alice Front Hand
+bounds:1565,1727,159,196
+rotate:90
+Alice Front Leg
+bounds:537,1547,195,251
+rotate:90
+Alice Head
+bounds:1076,256,577,519
+C
+bounds:172,1745,170,141
+Chloe Back Arm
+bounds:1033,1275,272,260
+Chloe Back Foot
+bounds:790,1539,291,195
+Chloe Back Hand
+bounds:0,1556,249,187
+Chloe Body
+bounds:835,804,580,457
+Chloe Front Arm
+bounds:0,1081,279,268
+Chloe Front Foot
+bounds:257,1351,202,251
+rotate:90
+Chloe Front Hand
+bounds:1763,1702,202,184
+J
+bounds:344,1745,170,141
+JB Back Arm
+bounds:1578,1237,283,265
+JB Back Foot
+bounds:1083,1537,280,195
+JB Back Hand
+bounds:846,1738,148,174
+rotate:90
+JB Body
+bounds:0,560,537,458
+JB Front Arm
+bounds:281,1020,279,268
+JB Front Foot
+bounds:1365,1529,196,249
+rotate:90
+JB Front Hand
+bounds:1183,1735,151,177
+rotate:90
+P
+bounds:516,1745,170,141
+Philip Head
+bounds:0,0,558,534
+rotate:90
+Phillip Back Arm
+bounds:1307,1263,264,269
+rotate:90
+Phillip Back Hand
+bounds:688,1744,142,156
+rotate:90
+Phillip Back Leg
+bounds:1616,1504,289,196
+Phillip Body
+bounds:539,344,535,458
+Phillip Front Arm
+bounds:562,1007,271,270
+Phillip Front Hand
+bounds:1022,1736,150,159
+rotate:90
+Phillip Front Leg
+bounds:0,1357,196,255
+rotate:90
+
+Character_2.png
+size:1788,1858
+filter:Linear,Linear
+pma:true
+Blender Active 1
+bounds:595,1240,618,1126
+rotate:90
+Blender Active 2
+bounds:0,620,618,1126
+rotate:90
+Blender Idle
+bounds:0,0,618,1126
+rotate:90
+Chloe Head
+bounds:1128,602,636,660
+rotate:90
+JB Head
+bounds:0,1288,570,593
+rotate:90
+
+Character_3.png
+size:725,1227
+filter:Linear,Linear
+pma:true
+Chair
+bounds:0,0,725,1227
