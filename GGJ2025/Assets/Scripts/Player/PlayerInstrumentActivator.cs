@@ -16,7 +16,7 @@ namespace Player
 		[SerializeField, AutoHook] private PlayerManager _player;
 		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
 
-		public event UnityAction<InstrumentMono> InstrumentActivated;
+		public event UnityAction<Instrument> InstrumentActivated;
 
 		private void OnEnable()
 		{
@@ -34,6 +34,7 @@ namespace Player
 			if (current == null && current.enabled)
 				return;
 			InstrumentActivated?.Invoke(current);
+			current.Activate();
 		}
 	}
 }

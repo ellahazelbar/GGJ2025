@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Instrument
+namespace Instruments
 {
     public class Timeline : MonoBehaviour
     {
@@ -33,21 +33,6 @@ namespace Instrument
         {
             notesAlive = new List<Note>();
             toDestroy = new List<Note>();
-        }
-
-        //Delete this
-        private void Start()
-        {
-            StartCoroutine(SpawnNotes());
-        }
-
-        private IEnumerator SpawnNotes()
-        {
-            while (true)
-            {
-                CreateNote(Time.time + 2, 4);
-                yield return new WaitForSeconds(Random.Range(5, 8));
-            }
         }
 
         public void CreateNote(float PlayTime, float Duration)

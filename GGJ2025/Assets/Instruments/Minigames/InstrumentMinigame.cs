@@ -2,8 +2,11 @@ using UnityEngine;
 
 namespace Instruments
 {
-    public abstract class InstrumentMinigame : MonoBehaviour
+    public class InstrumentMinigame : Timeline
     {
-        
+        public void Activate()
+        {
+
+        }
     }
 }
