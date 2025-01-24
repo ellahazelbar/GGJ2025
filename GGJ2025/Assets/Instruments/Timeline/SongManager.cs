@@ -8,7 +8,7 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
 
     private Dictionary<InstrumentType, List<Song.Interval>> intervalsPerInstrument;
 
-    private Dictionary<InstrumentType, InstrumentMinigame> instrumentMinigames;
+    private Dictionary<InstrumentType, Instrument> instruments;
 
     private Dictionary<InstrumentType, Song.Interval> currentInterval;
 
@@ -21,7 +21,7 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
     override protected void Awake()
     {
         base.Awake();
-        instrumentMinigames = new();
+        instruments = new();
         currentInterval = new();
     }
 
@@ -30,9 +30,9 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
         intervalsPerInstrument = Song.SortedIntervals();
     }
 
-    public void RegisterInstrumentTimeline(InstrumentType Type, InstrumentMinigame Minigame)
+    public void RegisterInstrument(InstrumentType Type, Instrument Instrument)
     {
-        instrumentMinigames.Add(Type, Minigame);
+        instruments.Add(Type, Instrument);
     }
 
 
@@ -45,7 +45,7 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
             if (0 < intervalsLeft.Count && TimeSongTime(Time.time) + LookAheadTime > intervalsLeft[0].PlayTime)
             {
                 Song.Interval inter = intervalsLeft[0];
-                instrumentMinigames[i].NotifyIncomingInterval(SongTimeToTime(inter.PlayTime), inter.Duration);
+                instruments[i].Minigame.NotifyIncomingInterval(SongTimeToTime(inter.PlayTime), inter.Duration);
                 currentInterval[i] = inter;
                 //remove the current interval after its duration is ended
                 new Utils.Timer<Dictionary<InstrumentType, Song.Interval>, InstrumentType>

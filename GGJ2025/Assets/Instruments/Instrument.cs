@@ -9,6 +9,11 @@ namespace Instruments
 
         private bool active;
 
+        private void Start()
+        {
+            SongManager.Instance.RegisterInstrument(Type, this);
+        }
+
         public void Activate()
         {
             if (active) return;
