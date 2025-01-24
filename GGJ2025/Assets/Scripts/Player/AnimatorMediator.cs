@@ -1,6 +1,5 @@
 using TNRD.Autohook;
 using UnityEngine;
-using Spine;
 using Spine.Unity;
 
 namespace Player
@@ -13,13 +12,7 @@ namespace Player
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private PlayerInstrumentActivator _instrument;
 
-		private Vector3 _defaultSize = Vector3.one;
 		private Spine.AnimationState _state;
-
-		private void Awake()
-		{
-			_defaultSize = transform.localScale;
-		}
 
 		private void Start()
 		{
@@ -28,8 +21,6 @@ namespace Player
 
 		private void FixedUpdate()
 		{
-			if (_rb.linearVelocityX > 0f)
-				transform.localScale = new (Mathf.Sign(_rb.linearVelocityX) * _defaultSize.x, _defaultSize.y, _defaultSize.z);
 			if (_rb.linearVelocity.sqrMagnitude > 1f)
 				SetAnimation(0, _runAnimation, true);
 			else
