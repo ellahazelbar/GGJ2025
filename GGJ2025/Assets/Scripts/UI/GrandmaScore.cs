@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class GrandmaScore : MonoBehaviour
     [SerializeField] private Sprite happySprite;
 
     [SerializeField] private Image grandmaSpriteRenderer;
+    
+    [SerializeField] private MMF_Player positiveFeedbacks, negativeFeedbacks;
 
     private int currentScore = 0;
     private int currentGrandmaState = 0; // 0: Neutral, 1: Almost Mad, 2: Mad, 3: Almost Happy, 4: Happy
@@ -70,9 +73,10 @@ public class GrandmaScore : MonoBehaviour
         }
     }
 
+    [ContextMenu("Trigger Positive Effects")]
     private void TriggerPositiveEffects()
     {
-        Debug.Log("Grandma is Happy! Triggering Positive effects.");
+        positiveFeedbacks.PlayFeedbacks();
     }
     private void TriggerNegativeEffects()
     {
