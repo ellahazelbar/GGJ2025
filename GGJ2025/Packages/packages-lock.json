@@ -279,6 +279,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "net.tnrd.autohook": {
+      "version": "https://github.com/Thundernerd/Unity3D-AutoHook.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d575a73956b452d1c1e3d090977b7156bf1a4ecc"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
