@@ -18,16 +18,17 @@ namespace Instruments
         private bool recording;
         private Song.Interval currentPlayedInterval;
 
-        private float nextFadeTime;
+        public float NextFadeTime { get; private set; }
 
         private bool waitingForInterval;
-        private float nextPlayTime, nextShutoffTime;
+        private float nextPlayTime;
+        public float NextShutoffTime { get; private set; }
 
 
         public void NotifyIncomingInterval(float PlayTime, float Duration)
         {
             nextPlayTime = PlayTime;
-            nextShutoffTime = PlayTime + Duration;
+            NextShutoffTime = PlayTime + Duration;
             waitingForInterval = true;
         }
 
@@ -80,30 +81,33 @@ namespace Instruments
             */
         }
 
-        private void OnPlayNote()
+        public void NotePlayed()
         {
-            bool hit = false;
+            if (null == currentPlayedInterval)
+                return;
+            Song.Interval.Note hit = null;
             Song.Interval.Note nextNote = null;
             foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
             {
                 nextNote = note;
-                if (hit)
+                if (null != hit)
                     break;
                 if (Mathf.Abs(Time.time - SongManager.Instance.SongTimeToTime(note.PlayTime)) < AccuracyRange)
                 {
-                    hit = true;
+                    hit = note;
                     nextNote = null;
                 }
             }
-            if (hit)
+            if (null != hit)
             {
+                Timeline.NoteHit(hit);
                 if (null == nextNote) 
                 {
-                    nextFadeTime = Mathf.Infinity;
+                    NextFadeTime = Mathf.Infinity;
                 }
                 else
                 {
-                    nextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
+                    NextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
                 }
             }
             else

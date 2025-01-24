@@ -15,7 +15,7 @@ namespace Instruments
             public float PlayTime;
             public float Duration;
             public float Lifetime;
-            public Transform Node;
+            public RectTransform Node;
 
             public Note SetHeight(float UnitsPerSecond)
             {
@@ -38,13 +38,23 @@ namespace Instruments
         {
             notesAlive.Add(new Note()
                 {
-                    Node = Instantiate(NodePrefab, transform).transform,
+                    Node = Instantiate(NodePrefab, transform).transform as RectTransform,
                     PlayTime = PlayTime,
                     Duration = Duration,
                     Lifetime = Duration + 1
                 }.SetHeight(UnitsPerSecond)
             );                
         }
+
+        public void NoteHit(Song.Interval.Note Note)
+        {
+            foreach (Note n in notesAlive)
+            {
+                if (Mathf.Approximately(n.PlayTime, Note.PlayTime))
+                    toDestroy.Add(n);
+            }
+        }
+
 
         private void LateUpdate()
         {
@@ -54,7 +64,7 @@ namespace Instruments
                 {
                     toDestroy.Add(n);
                 }
-                n.Node.localPosition = new Vector3(0, (n.PlayTime - Time.time) * UnitsPerSecond);
+                n.Node.anchoredPosition = new Vector2(0, (n.PlayTime - Time.time) * UnitsPerSecond);
             }
             foreach (Note n in toDestroy)
             {

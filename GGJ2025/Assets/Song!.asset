@@ -14,18 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Intervals:
   - Instrument: 0
-    PlayTime: 6
-    Duration: 15
+    PlayTime: 8
+    Duration: 8
+    Skip: 0
     Notes:
-    - PlayTime: 6
+    - PlayTime: 11.6
       Duration: 10
-      Clip: {fileID: 0}
-    - PlayTime: 6.4
+    - PlayTime: 12
       Duration: 10
-      Clip: {fileID: 0}
-    - PlayTime: 6.9
+    - PlayTime: 14.3
       Duration: 10
-      Clip: {fileID: 0}
-    - PlayTime: 7.2
+    - PlayTime: 15
       Duration: 10
-      Clip: {fileID: 0}
+  - Instrument: 0
+    PlayTime: 27
+    Duration: 8
+    Skip: 0
+    Notes:
+    - PlayTime: 29.7
+      Duration: 10
+    - PlayTime: 30.45
+      Duration: 10
+    - PlayTime: 31
+      Duration: 10
+    - PlayTime: 31.4
+      Duration: 10
+    - PlayTime: 31.95
+      Duration: 10
+    - PlayTime: 32.6
+      Duration: 10
+    - PlayTime: 32.95
+      Duration: 10
+    - PlayTime: 33.5
+      Duration: 10
+    - PlayTime: 34.02
+      Duration: 10
+    - PlayTime: 34.4
+      Duration: 10
+    - PlayTime: 34.95
+      Duration: 10
+    - PlayTime: 35.5
+      Duration: 10
