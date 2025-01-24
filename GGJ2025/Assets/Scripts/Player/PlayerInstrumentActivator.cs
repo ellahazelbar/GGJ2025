@@ -13,7 +13,7 @@ namespace Player
 	[RequireComponent(typeof(PlayerInstrumentPointer))]
 	public class PlayerInstrumentActivator : MonoBehaviour
 	{
-		[SerializeField, AutoHook] private PlayerManager _player;
+		[SerializeField, AutoHook] private PlayerCharacter _player;
 		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
 
 		public event UnityAction<InstrumentMono> InstrumentActivated;
