@@ -1,20 +1,33 @@
 using UnityEngine;
 using TNRD.Autohook;
+using Spine.Unity;
+using Spine;
+using System;
 
 namespace Player
 {
 	public class MovementDustController : MonoBehaviour
 	{
 		[SerializeField, AutoHook] private ParticleSystem _ps;
-		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
+		[SerializeField] private SkeletonAnimation _animator;
+		private EventData _stepEvent;
 
-		private void Update()
+		private void OnEnable()
 		{
-			var isMoving = _rb.linearVelocity.sqrMagnitude > 0.1f;
-            if (isMoving && !_ps.isPlaying)
-				_ps.Play();
-			else if (!isMoving && _ps.isPlaying)
-				_ps.Stop();
+			_stepEvent = _animator.Skeleton.Data.FindEvent("Run Event");
+			_animator.state.Event += HandleEvents;
+		}
+
+		private void OnDisable()
+		{
+			_animator.state.Event -= HandleEvents;
+		}
+
+		private void HandleEvents(TrackEntry trackEntry, Spine.Event e)
+		{
+			if (e.Data != _stepEvent)
+				return;
+			_ps.Play();
 		}
 	}
 }

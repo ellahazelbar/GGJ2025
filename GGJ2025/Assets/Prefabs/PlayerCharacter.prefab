@@ -367,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ps: {fileID: 7507005102188029687}
   _rb: {fileID: 8555677714515251285}
+  _animator: {fileID: 550129757575087296}
 --- !u!4 &7507005102203324019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121091811543137509, guid: ddf4ea2625767fd4bb4153e7e4009ad5, type: 3}
