@@ -213,6 +213,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5825407451900667279}
     m_Modifications:
+    - target: {fileID: 550129757575087296, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: initialSkinName
+      value: Phillip
+      objectReference: {fileID: 0}
+    - target: {fileID: 852867460809375341, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1893719915243253657, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.25
@@ -294,6 +302,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5825407451900667279}
     m_Modifications:
+    - target: {fileID: 550129757575087296, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: initialSkinName
+      value: JB
+      objectReference: {fileID: 0}
+    - target: {fileID: 852867460809375341, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1893719915243253657, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.75
@@ -334,6 +350,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3497049924772164923, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497049924772164923, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 776b44a1a76d1334392f0c3e47517130, type: 2}
     - target: {fileID: 4493588888938352007, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: m_Name
       value: P2C1
@@ -371,6 +395,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5825407451900667279}
     m_Modifications:
+    - target: {fileID: 852867460809375341, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1893719915243253657, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
@@ -448,6 +476,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5825407451900667279}
     m_Modifications:
+    - target: {fileID: 550129757575087296, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: initialSkinName
+      value: Chloe
+      objectReference: {fileID: 0}
+    - target: {fileID: 852867460809375341, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1893719915243253657, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75
