@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using TNRD.Autohook;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -15,6 +16,8 @@ namespace Player
 		[SerializeField] private AnimationCurve _easeType;
 		private float _lastDashTime;
 		private float _defaultSpeed;
+
+		public event UnityAction Dashed;
 
 		private bool CanDash => Time.time >= _lastDashTime + _cooldown;
 
@@ -40,6 +43,7 @@ namespace Player
 				return;
 			_lastDashTime = Time.time;
 			DOTween.To(startValue: _defaultSpeed, endValue: _defaultSpeed * _speedMult, setter: speed => _playerMove.Speed = speed, duration: _duration).SetEase(_easeType).OnComplete(OnDashComplete);
+			Dashed?.Invoke();
 		}
 
 		private void OnDashComplete()
