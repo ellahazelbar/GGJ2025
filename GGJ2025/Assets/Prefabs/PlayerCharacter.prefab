@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 7731706800544410709}
   - component: {fileID: 8224574034346316446}
   - component: {fileID: 4565790854096473527}
-  m_Layer: 0
+  - component: {fileID: 7981165525176852128}
+  - component: {fileID: 2931706004880339751}
+  m_Layer: 7
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e192712e38028c47ad5922020c8e85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InstrumentPointer>k__BackingField: {fileID: 7981165525176852128}
+  <InstrumentActivator>k__BackingField: {fileID: 2931706004880339751}
 --- !u!114 &8224574034346316446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMove: {fileID: 8224574034346316446}
+  _speedMult: 2
+  _duration: 0.25
   _cooldown: 1
   _easeType:
     serializedVersion: 2
@@ -174,6 +180,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7981165525176852128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493588888938352007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2abfb8a151e3234bb518e9f66a3cd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _instrumentLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &2931706004880339751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493588888938352007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1373108f75fc340a14cd8c7bb0d7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 7731706800544410709}
+  _instrumentPointer: {fileID: 7981165525176852128}
 --- !u!1 &6595079355548276220
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718651407787496964}
   - component: {fileID: 3087587332026628227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7759507060225176684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

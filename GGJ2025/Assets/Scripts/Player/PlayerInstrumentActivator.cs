@@ -1,0 +1,39 @@
+using Instruments;
+using System;
+using TNRD.Autohook;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+
+namespace Player
+{
+	/// <summary>
+	/// Holds the currently pointed-to instrument gameobject.
+	/// </summary>
+	[RequireComponent(typeof(PlayerInstrumentPointer))]
+	public class PlayerInstrumentActivator : MonoBehaviour
+	{
+		[SerializeField, AutoHook] private PlayerManager _player;
+		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
+
+		public event UnityAction<InstrumentMono> InstrumentActivated;
+
+		private void OnEnable()
+		{
+			_player.Input.House.Interact.started += OnInteract;
+		}
+
+		private void OnDisable()
+		{
+			_player.Input.House.Interact.started -= OnInteract;
+		}
+
+		private void OnInteract(InputAction.CallbackContext context)
+		{
+			var current = _instrumentPointer.Current;
+			if (current == null && current.enabled)
+				return;
+			InstrumentActivated?.Invoke(current);
+		}
+	}
+}
