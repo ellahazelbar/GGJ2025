@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 7731706800544410709}
   _rb: {fileID: 8555677714515251285}
-  <Speed>k__BackingField: 5
+  <Speed>k__BackingField: 6
 --- !u!114 &4565790854096473527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 7731706800544410709}
   _playerMove: {fileID: 8224574034346316446}
-  _speedMult: 1.75
+  _speedMult: 1.7
   _duration: 0.2
   _cooldown: 1
   _easeType:
