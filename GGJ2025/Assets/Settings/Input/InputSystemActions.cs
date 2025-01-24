@@ -55,6 +55,15 @@ namespace Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeActiveCharacter"",
+                    ""type"": ""Button"",
+                    ""id"": ""0fd0db52-25df-47d9-b9fc-499a3ce3215d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -231,6 +240,28 @@ namespace Player
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9d5d9d5-f708-47e3-b30c-54834cfdd2c0"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ChangeActiveCharacter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7222d4a5-503a-42a0-90bf-7d149398e9e5"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""ChangeActiveCharacter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -816,6 +847,7 @@ namespace Player
             m_House_Move = m_House.FindAction("Move", throwIfNotFound: true);
             m_House_Interact = m_House.FindAction("Interact", throwIfNotFound: true);
             m_House_Dash = m_House.FindAction("Dash", throwIfNotFound: true);
+            m_House_ChangeActiveCharacter = m_House.FindAction("ChangeActiveCharacter", throwIfNotFound: true);
             // Instrument
             m_Instrument = asset.FindActionMap("Instrument", throwIfNotFound: true);
             m_Instrument_Newaction = m_Instrument.FindAction("New action", throwIfNotFound: true);
@@ -902,6 +934,7 @@ namespace Player
         private readonly InputAction m_House_Move;
         private readonly InputAction m_House_Interact;
         private readonly InputAction m_House_Dash;
+        private readonly InputAction m_House_ChangeActiveCharacter;
         public struct HouseActions
         {
             private @InputSystemActions m_Wrapper;
@@ -909,6 +942,7 @@ namespace Player
             public InputAction @Move => m_Wrapper.m_House_Move;
             public InputAction @Interact => m_Wrapper.m_House_Interact;
             public InputAction @Dash => m_Wrapper.m_House_Dash;
+            public InputAction @ChangeActiveCharacter => m_Wrapper.m_House_ChangeActiveCharacter;
             public InputActionMap Get() { return m_Wrapper.m_House; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -927,6 +961,9 @@ namespace Player
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @ChangeActiveCharacter.started += instance.OnChangeActiveCharacter;
+                @ChangeActiveCharacter.performed += instance.OnChangeActiveCharacter;
+                @ChangeActiveCharacter.canceled += instance.OnChangeActiveCharacter;
             }
 
             private void UnregisterCallbacks(IHouseActions instance)
@@ -940,6 +977,9 @@ namespace Player
                 @Dash.started -= instance.OnDash;
                 @Dash.performed -= instance.OnDash;
                 @Dash.canceled -= instance.OnDash;
+                @ChangeActiveCharacter.started -= instance.OnChangeActiveCharacter;
+                @ChangeActiveCharacter.performed -= instance.OnChangeActiveCharacter;
+                @ChangeActiveCharacter.canceled -= instance.OnChangeActiveCharacter;
             }
 
             public void RemoveCallbacks(IHouseActions instance)
@@ -1144,6 +1184,7 @@ namespace Player
             void OnMove(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnChangeActiveCharacter(InputAction.CallbackContext context);
         }
         public interface IInstrumentActions
         {

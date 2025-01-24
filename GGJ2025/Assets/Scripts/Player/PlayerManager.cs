@@ -1,28 +1,46 @@
-using TNRD.Autohook;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using Utils;
+using UnityEngine.InputSystem;
+using Extensions;
+using UnityEngine.InputSystem.Utilities;
 
 namespace Player
 {
-	public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
+	/// <summary>
+	/// Abstract decorator for a single player.
+	/// Can control multiple characters.
+	/// </summary>
+	public class PlayerManager : MonoBehaviour
 	{
-		[field: SerializeField, AutoHook] public PlayerInstrumentPointer InstrumentPointer { get; private set; }
-		[field: SerializeField, AutoHook] public PlayerInstrumentActivator InstrumentActivator { get; private set; }
+		[SerializeField] private List<PlayerCharacter> _characters;
+		[field: SerializeField] public Color Color { get; private set; } = Color.white;
+		[SerializeField] private int _playerIndex;
 		public InputSystemActions Input { get; private set; }
+		private int _activeCharacterIndex;
+		public PlayerCharacter ActiveCharacter => _characters[_activeCharacterIndex];
 
-		protected override void Awake()
+		public IReadOnlyList<PlayerCharacter> Characters => _characters;
+
+		private void OnValidate()
 		{
-			base.Awake();
+			_characters = GetComponentsInChildren<PlayerCharacter>().ToList();
+		}
+
+		private void Awake()
+		{
 			Input = new();
 		}
 
 		private void OnEnable()
 		{
 			Input.Enable();
+			Input.House.ChangeActiveCharacter.started += OnActiveCharacterChanged;
 		}
 
 		private void OnDisable()
 		{
+			Input.House.ChangeActiveCharacter.started -= OnActiveCharacterChanged;
 			Input.Disable();
 		}
 
@@ -30,6 +48,32 @@ namespace Player
 		{
 			Input.Disable();
 			Input.Dispose();
+		}
+
+		private void Start()
+		{
+			Input.devices = GetInputDevicesForPlayer();
+			SetCharacterEnabledStatus();
+
+			ReadOnlyArray<InputDevice> GetInputDevicesForPlayer()
+			{
+				var devices = new InputDevice[1];
+				devices[0] = Gamepad.all[_playerIndex];
+				return devices;
+			}
+		}
+
+		private void OnActiveCharacterChanged(InputAction.CallbackContext context)
+		{
+			_activeCharacterIndex = (_activeCharacterIndex+1) % _characters.Count;
+			SetCharacterEnabledStatus();
+		}
+
+		private void SetCharacterEnabledStatus()
+		{
+			foreach (var character in _characters.Except(ActiveCharacter))
+				character.enabled = false;
+			ActiveCharacter.enabled = true;
 		}
 	}
 }
