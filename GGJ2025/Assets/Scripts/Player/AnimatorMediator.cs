@@ -25,7 +25,6 @@ namespace Player
 				SetAnimation(0, _runAnimation, true);
 			else
 				SetAnimation(0, _idleAnimation, true);
-			_animator.ApplyAnimation();
 		}
 
 		private void SetAnimation(int trackIndex, string animation, bool looping)
@@ -33,9 +32,9 @@ namespace Player
 			if (_animator.AnimationName == animation)
 				return;
 			if (animation == _idleAnimation)
-				_state.SetEmptyAnimation(trackIndex, 0.25f);
+				_state.SetAnimation(trackIndex, animation, false);
 			else
-				_animator.AnimationState.SetAnimation(trackIndex, animation, looping);
+				_state.SetAnimation(trackIndex, animation, looping);
 		}
 	}
 }
