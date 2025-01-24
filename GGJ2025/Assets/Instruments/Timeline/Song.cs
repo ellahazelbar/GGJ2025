@@ -23,6 +23,7 @@ namespace Instruments
             public InstrumentType Instrument;
             public float PlayTime;
             public float Duration;
+            public bool Skip;
 
             [Serializable]
             public class Note
@@ -48,7 +49,8 @@ namespace Instruments
             }
             foreach (Interval i in Intervals)
             {
-                res[i.Instrument].Add(i);
+                if (!i.Skip)
+                    res[i.Instrument].Add(i);
             }
             foreach (List<Interval> inters in res.Values)
             {

@@ -13,33 +13,22 @@ namespace Instruments
         public UnityEngine.UI.Image ToasterImage;
         public float ToasterTime;
 
+        public float AccuracyRange;
+
         private bool recording;
         private Song.Interval currentPlayedInterval;
 
-        private class PlayedNote
-        {
-            public float Offset; //from section start
-        }
-
-        private List<PlayedNote> PlayedNotes;
+        public float NextFadeTime { get; private set; }
 
         private bool waitingForInterval;
-        private float nextPlayTime, nextShutoffTime;
+        private float nextPlayTime;
+        public float NextShutoffTime { get; private set; }
 
-        private void Awake()
-        {
-            PlayedNotes = new();
-        }
-
-        private void Start()
-        {
-            SongManager.Instance.RegisterInstrumentTimeline(Type, this);
-        }
 
         public void NotifyIncomingInterval(float PlayTime, float Duration)
         {
             nextPlayTime = PlayTime;
-            nextShutoffTime = PlayTime + Duration;
+            NextShutoffTime = PlayTime + Duration;
             waitingForInterval = true;
         }
 
@@ -54,10 +43,8 @@ namespace Instruments
                 }
                 else
                 {
-                    //set toaster accordingly
                     float toasterFill = (ToasterTime - toWait) / ToasterTime;
                     ToasterImage.fillAmount = toasterFill;
-                    //Debug.Log($"Toasting {toasterFill}!", this);
                 }
             }
             else ToasterImage.fillAmount = 0;
@@ -94,11 +81,38 @@ namespace Instruments
             */
         }
 
-        private void OnPlayNote()
+        public void NotePlayed()
         {
+            if (null == currentPlayedInterval)
+                return;
+            Song.Interval.Note hit = null;
+            Song.Interval.Note nextNote = null;
             foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
             {
-                //Timeline.CreateNote(note.PlayTime, note.Duration);
+                nextNote = note;
+                if (null != hit)
+                    break;
+                if (Mathf.Abs(Time.time - SongManager.Instance.SongTimeToTime(note.PlayTime)) < AccuracyRange)
+                {
+                    hit = note;
+                    nextNote = null;
+                }
+            }
+            if (null != hit)
+            {
+                Timeline.NoteHit(hit);
+                if (null == nextNote) 
+                {
+                    NextFadeTime = Mathf.Infinity;
+                }
+                else
+                {
+                    NextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
+                }
+            }
+            else
+            {
+                //play miss sound byte with random pitch
             }
         }
     }
