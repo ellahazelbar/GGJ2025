@@ -21,6 +21,7 @@ namespace Player
 		private void Awake()
 		{
 			_defaultSpeed = _playerMove.Speed;
+			_lastDashTime = Mathf.NegativeInfinity;
 		}
 
 		private void OnEnable()

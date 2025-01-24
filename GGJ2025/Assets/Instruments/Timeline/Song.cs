@@ -29,7 +29,6 @@ namespace Instruments
             {
                 public float PlayTime;
                 public float Duration;
-                public AudioClip Clip;
             }
             public List<Note> Notes;
         }
