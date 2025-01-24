@@ -153,6 +153,8 @@ MonoBehaviour:
   - {fileID: 4565790854096473527}
   - {fileID: 7981165525176852128}
   - {fileID: 2931706004880339751}
+  - {fileID: 5547789416277990143}
+  - {fileID: 8388598703759340798}
   <InstrumentPointer>k__BackingField: {fileID: 7981165525176852128}
   <InstrumentActivator>k__BackingField: {fileID: 2931706004880339751}
   <Owner>k__BackingField: {fileID: 0}
@@ -360,13 +362,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7507005102202848821}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4921e4bbdfaf25040852568ffc14e9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ps: {fileID: 7507005102188029687}
-  _rb: {fileID: 8555677714515251285}
   _animator: {fileID: 550129757575087296}
 --- !u!4 &7507005102203324019 stripped
 Transform:
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6742670737712667513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab2bd9df6a2d8344dba5c802e96746b4, type: 3}
   m_Name: 
