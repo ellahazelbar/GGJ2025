@@ -151,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 7731706800544410709}
   _playerMove: {fileID: 8224574034346316446}
-  _speedMult: 2
-  _duration: 0.25
+  _speedMult: 1.75
+  _duration: 0.2
   _cooldown: 1
   _easeType:
     serializedVersion: 2
