@@ -23,6 +23,8 @@ namespace Instruments
             public InstrumentType Instrument;
             public float PlayTime;
             public float Duration;
+
+            [Serializable]
             public class Note
             {
                 public float PlayTime;
@@ -32,7 +34,7 @@ namespace Instruments
             public List<Note> Notes;
         }
 
-        public List<Interval> Notes;
+        public List<Interval> Intervals;
 
         /// <summary>
         /// Expensive. Call and cache result.
@@ -45,7 +47,7 @@ namespace Instruments
             {
                 res.Add((InstrumentType)i, new List<Interval>());
             }
-            foreach (Interval i in Notes)
+            foreach (Interval i in Intervals)
             {
                 res[i.Instrument].Add(i);
             }
