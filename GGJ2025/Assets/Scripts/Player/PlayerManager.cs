@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Extensions;
+using UnityEngine.InputSystem.Utilities;
 
 namespace Player
 {
@@ -13,6 +14,8 @@ namespace Player
 	public class PlayerManager : MonoBehaviour
 	{
 		[SerializeField] private List<PlayerCharacter> _characters;
+		[field: SerializeField] public Color Color { get; private set; } = Color.white;
+		[SerializeField] private int _playerIndex;
 		public InputSystemActions Input { get; private set; }
 		private int _activeCharacterIndex;
 		public PlayerCharacter ActiveCharacter => _characters[_activeCharacterIndex];
@@ -27,7 +30,6 @@ namespace Player
 		private void Awake()
 		{
 			Input = new();
-			SetCharacterEnabledStatus();
 		}
 
 		private void OnEnable()
@@ -46,6 +48,19 @@ namespace Player
 		{
 			Input.Disable();
 			Input.Dispose();
+		}
+
+		private void Start()
+		{
+			Input.devices = GetInputDevicesForPlayer();
+			SetCharacterEnabledStatus();
+
+			ReadOnlyArray<InputDevice> GetInputDevicesForPlayer()
+			{
+				var devices = new InputDevice[1];
+				devices[0] = Gamepad.all[_playerIndex];
+				return devices;
+			}
 		}
 
 		private void OnActiveCharacterChanged(InputAction.CallbackContext context)
