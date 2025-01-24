@@ -114,8 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e192712e38028c47ad5922020c8e85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterBehaviours:
+  - {fileID: 8224574034346316446}
+  - {fileID: 4565790854096473527}
+  - {fileID: 7981165525176852128}
+  - {fileID: 2931706004880339751}
   <InstrumentPointer>k__BackingField: {fileID: 7981165525176852128}
   <InstrumentActivator>k__BackingField: {fileID: 2931706004880339751}
+  <Owner>k__BackingField: {fileID: 0}
 --- !u!114 &8224574034346316446
 MonoBehaviour:
   m_ObjectHideFlags: 0
