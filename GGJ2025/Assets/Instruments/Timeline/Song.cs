@@ -1,10 +1,10 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Instruments
 {
-    public enum Instrument
+    public enum InstrumentType
     {
         Microwave,
         Pots,
@@ -20,7 +20,7 @@ namespace Instruments
         [Serializable]
         public class Interval
         {
-            public Instrument Instrument;
+            public InstrumentType Instrument;
             public float PlayTime;
             public float Duration;
         }
@@ -31,12 +31,12 @@ namespace Instruments
         /// Expensive. Call and cache result.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<Instrument, List<Interval>> SortedIntervals()
+        public Dictionary<InstrumentType, List<Interval>> SortedIntervals()
         {
-            Dictionary<Instrument, List<Interval>> res = new Dictionary<Instrument, List<Interval>>();
-            for (int i = 0; i < (int)Instrument.Max; i++)
+            Dictionary<InstrumentType, List<Interval>> res = new();
+            for (int i = 0; i < (int)InstrumentType.Max; i++)
             {
-                res.Add((Instrument)i, new List<Interval>());
+                res.Add((InstrumentType)i, new List<Interval>());
             }
             foreach (Interval i in Notes)
             {
@@ -44,7 +44,7 @@ namespace Instruments
             }
             foreach (List<Interval> inters in res.Values)
             {
-                inters.Sort();
+                inters.Sort((Interval A, Interval B) => { return A.PlayTime.CompareTo(B.PlayTime); });
             }
             return res;
         }
