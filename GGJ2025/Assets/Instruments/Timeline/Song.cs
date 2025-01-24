@@ -23,6 +23,13 @@ namespace Instruments
             public InstrumentType Instrument;
             public float PlayTime;
             public float Duration;
+            public class Note
+            {
+                public float PlayTime;
+                public float Duration;
+                public AudioClip Clip;
+            }
+            public List<Note> Notes;
         }
 
         public List<Interval> Notes;
@@ -44,7 +51,7 @@ namespace Instruments
             }
             foreach (List<Interval> inters in res.Values)
             {
-                inters.Sort((Interval A, Interval B) => { return A.PlayTime.CompareTo(B.PlayTime); });
+                inters.Sort((Interval A, Interval B) => { return A.PlayTime.CompareTo(B.PlayTime);  });
             }
             return res;
         }

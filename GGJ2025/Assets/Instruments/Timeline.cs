@@ -9,6 +9,9 @@ namespace Instruments
         public float UnitsPerSecond;
         public GameObject NodePrefab;
 
+        public InstrumentType Type;
+
+
         public class Note
         {
             public float PlayTime;
@@ -26,8 +29,6 @@ namespace Instruments
 
         private List<Note> notesAlive;
         private List<Note> toDestroy;
-
-        public bool Bruh;
 
         private void Awake()
         {

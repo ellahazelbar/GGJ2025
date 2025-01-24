@@ -9,7 +9,7 @@ namespace Instruments
 
         public void Activate()
         {
-            Minigame.Activate();
+            Minigame.Activate(Type);
         }
 
         public void Deactivate()
