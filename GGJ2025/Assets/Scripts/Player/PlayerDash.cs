@@ -1,13 +1,13 @@
-using DG.Tweening;
-using System;
-using TNRD.Autohook;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
+using TNRD.Autohook;
 
 namespace Player
 {
 	public class PlayerDash : MonoBehaviour
 	{
+		[SerializeField, AutoHook] private PlayerCharacter _character;
 		[SerializeField, AutoHook] private PlayerMove _playerMove;
 		[SerializeField] private float _speedMult = 2f;
 		[SerializeField] private float _duration = 0.25f;
@@ -25,12 +25,12 @@ namespace Player
 
 		private void OnEnable()
 		{
-			PlayerManager.Instance.Input.House.Dash.performed += OnDash;
+			_character.Input.House.Dash.performed += OnDash;
 		}
 
 		private void OnDisable()
 		{
-			PlayerManager.Instance.Input.House.Move.performed -= OnDash;
+			_character.Input.House.Move.performed -= OnDash;
 		}
 
 		private void OnDash(InputAction.CallbackContext context)

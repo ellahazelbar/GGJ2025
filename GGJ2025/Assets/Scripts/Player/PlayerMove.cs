@@ -5,7 +5,7 @@ namespace Player
 {
 	public class PlayerMove : MonoBehaviour
 	{
-		[SerializeField, AutoHook] private PlayerManager _player;
+		[SerializeField, AutoHook] private PlayerCharacter _player;
 		[SerializeField, AutoHook] private Rigidbody2D _rb;
 		[field: SerializeField] public float Speed { get; set; } = 5f;
 
