@@ -21,20 +21,17 @@ namespace Player
 
 		private void FixedUpdate()
 		{
-			if (_rb.linearVelocity.sqrMagnitude > 1f)
+			if (_rb.linearVelocity.sqrMagnitude > 0.1f)
 				SetAnimation(0, _runAnimation, true);
 			else
-				SetAnimation(0, _idleAnimation, true);
+				SetAnimation(0, _idleAnimation, false);
 		}
 
 		private void SetAnimation(int trackIndex, string animation, bool looping)
 		{
 			if (_animator.AnimationName == animation)
 				return;
-			if (animation == _idleAnimation)
-				_state.SetAnimation(trackIndex, animation, false);
-			else
-				_state.SetAnimation(trackIndex, animation, looping);
+			_state.SetAnimation(trackIndex, animation, looping);
 		}
 	}
 }
