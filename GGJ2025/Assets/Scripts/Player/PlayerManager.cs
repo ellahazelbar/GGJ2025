@@ -22,11 +22,6 @@ namespace Player
 
 		public IReadOnlyList<PlayerCharacter> Characters => _characters;
 
-		private void OnValidate()
-		{
-			_characters = GetComponentsInChildren<PlayerCharacter>().ToList();
-		}
-
 		private void Awake()
 		{
 			Input = new();
@@ -52,28 +47,20 @@ namespace Player
 
 		private void Start()
 		{
-			Input.devices = GetInputDevicesForPlayer();
-			SetCharacterEnabledStatus();
-
-			ReadOnlyArray<InputDevice> GetInputDevicesForPlayer()
-			{
-				var devices = new InputDevice[1];
-				devices[0] = Gamepad.all[_playerIndex];
-				return devices;
-			}
+			Input.devices = new(new InputDevice[] { Gamepad.all[_playerIndex] });
+			UpdateCharacterEnabledStatus();
 		}
 
 		private void OnActiveCharacterChanged(InputAction.CallbackContext context)
 		{
 			_activeCharacterIndex = (_activeCharacterIndex+1) % _characters.Count;
-			SetCharacterEnabledStatus();
+			UpdateCharacterEnabledStatus();
 		}
 
-		private void SetCharacterEnabledStatus()
+		private void UpdateCharacterEnabledStatus()
 		{
-			foreach (var character in _characters.Except(ActiveCharacter))
-				character.enabled = false;
-			ActiveCharacter.enabled = true;
+			foreach (var character in _characters)
+				character.enabled = character == ActiveCharacter;
 		}
 	}
 }

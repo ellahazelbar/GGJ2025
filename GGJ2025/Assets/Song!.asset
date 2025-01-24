@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07052d5b133b534aa152d909e680ada, type: 3}
   m_Name: Song!
   m_EditorClassIdentifier: 
-  Notes: []
+  Intervals:
+  - Instrument: 0
+    PlayTime: 6
+    Duration: 15
+    Notes:
+    - PlayTime: 6
+      Duration: 10
+      Clip: {fileID: 0}
+    - PlayTime: 6.4
+      Duration: 10
+      Clip: {fileID: 0}
+    - PlayTime: 6.9
+      Duration: 10
+      Clip: {fileID: 0}
+    - PlayTime: 7.2
+      Duration: 10
+      Clip: {fileID: 0}

@@ -9,36 +9,16 @@ namespace Player
 {
 	public class HaltUntillMultipleGamepads : SingletonMonoBehaviour<HaltUntillMultipleGamepads>
 	{
-		[SerializeField] private List<Behaviour> _enableWhenGamepadsConnected;
-		[SerializeField] private int _requiredControllers = 2;
+		public List<Behaviour> SinglePlayer;
+		public List<Behaviour> LocalMultiplayer;
 
-		private void OnEnable()
-		{
-			StartCoroutine(WaitFor2GamePads());
-		}
+        private void Update()
+        {
+			foreach (Behaviour b in SinglePlayer)
+				b.enabled = Gamepad.all.Count == 1;
+			foreach (Behaviour b in LocalMultiplayer)
+				b.enabled = Gamepad.all.Count == 2;
 
-		private IEnumerator WaitFor2GamePads()
-		{
-			SetEnabled(false);
-			yield return new WaitForControllerCount(_requiredControllers);
-			SetEnabled(true);
-
-			void SetEnabled(bool enabled)
-			{
-				_enableWhenGamepadsConnected.ForEach(b => b.enabled = enabled);
-			}
-		}
-
-		private class WaitForControllerCount : CustomYieldInstruction
-		{
-			private readonly int _controllerCount;
-
-			public WaitForControllerCount(int controllerCount = 1)
-			{
-				_controllerCount = controllerCount;
-			}
-
-			public override bool keepWaiting => Gamepad.all.Count < _controllerCount;
 		}
 	}
 }
