@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893719915243253657}
   - component: {fileID: 8555677714515251285}
-  - component: {fileID: 4080751776918612806}
+  - component: {fileID: 2253121358635755954}
   - component: {fileID: 7731706800544410709}
   - component: {fileID: 8224574034346316446}
   - component: {fileID: 4565790854096473527}
@@ -66,8 +66,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4080751776918612806
-CircleCollider2D:
+--- !u!70 &2253121358635755954
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,7 +101,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.45
+  m_Size: {x: 1, y: 0.45}
+  m_Direction: 1
 --- !u!114 &7731706800544410709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,11 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852880384675180419, guid: e00386db05d5aa446a31d767885355ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.123
+      value: -0.553
       objectReference: {fileID: 0}
     - target: {fileID: 3852880384675180419, guid: e00386db05d5aa446a31d767885355ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.17
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3852880384675180419, guid: e00386db05d5aa446a31d767885355ea, type: 3}
       propertyPath: m_LocalRotation.w
