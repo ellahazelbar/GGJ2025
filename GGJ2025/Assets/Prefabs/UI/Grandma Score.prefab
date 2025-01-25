@@ -136,7 +136,7 @@ MonoBehaviour:
   almostHappySprite: {fileID: 3770831438161234746, guid: 0315bb296a658ef4f8f38eec50664db3, type: 3}
   happySprite: {fileID: 6266176060360064, guid: 9a8a943350be75c43b8055a14d03f603, type: 3}
   grandmaSpriteRenderer: {fileID: 7317960340573526381}
-  positiveFeedbacks: {fileID: 5981664560330438061}
+  positiveFeedbacks: {fileID: 721274461878457424}
   negativeFeedbacks: {fileID: 5981664560330438061}
 --- !u!1 &5480627688091363010
 GameObject:
@@ -361,7 +361,7 @@ MonoBehaviour:
         Mode: 1
         Space: 1
         RandomizeRemap: 0
-        AnimatePositionDuration: 0.2
+        AnimatePositionDuration: 0.5
         AnimatePositionTween:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
@@ -431,7 +431,7 @@ MonoBehaviour:
           EnumConditions: 0100010000000000000000000000000000000000000000000000000000000000
         RemapCurveZero: 0
         RemapCurveZeroAlt: 0
-        RemapCurveOne: 30
+        RemapCurveOne: 45
         RemapCurveOneAlt: 1
         AnimateX: 1
         AnimatePositionTweenX:
@@ -837,7 +837,7 @@ MonoBehaviour:
         Mode: 1
         Space: 2
         RandomizeRemap: 0
-        AnimatePositionDuration: 0.25
+        AnimatePositionDuration: 0.5
         AnimatePositionTween:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
@@ -871,7 +871,7 @@ MonoBehaviour:
           EnumConditions: 0100010000000000000000000000000000000000000000000000000000000000
         RemapCurveZero: 0
         RemapCurveZeroAlt: 0
-        RemapCurveOne: 40
+        RemapCurveOne: 45
         RemapCurveOneAlt: 1
         AnimateX: 0
         AnimatePositionTweenX:
