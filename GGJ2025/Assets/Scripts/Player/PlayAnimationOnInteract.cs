@@ -22,7 +22,7 @@ namespace Player
 		{
 			var sequence = DOTween.Sequence();
 			sequence.Append(_rb.DOMove(instrument.InteractionSpot.position, _animationDuration).SetEase(Ease.OutSine));
-			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - transform.position.x);
+			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - instrument.InteractionSpot.position.x);
 			if (flipAnimation != null)
 				sequence.Append(flipAnimation);
 			sequence.OnComplete(() => ShowStartAnimation(instrument));
