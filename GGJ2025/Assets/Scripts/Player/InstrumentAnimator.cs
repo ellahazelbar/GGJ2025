@@ -1,4 +1,5 @@
-﻿using Spine.Unity;
+﻿using Instruments;
+using Spine.Unity;
 using System.Collections.Generic;
 using TNRD.Autohook;
 using UnityEngine;
@@ -12,20 +13,21 @@ namespace Player
 
 		public string StartAnimation { get; set; }
 		public IReadOnlyList<string> PlayAnimations { get; set; }
+		public InstrumentMinigame InstrumentMinigame { get; set; }
 
 		private void OnEnable()
 		{
 			_animationIndex = 0;
 			_animator.state.SetAnimation(1, StartAnimation, false);
-			// TODO Register for on instrument play event
+			InstrumentMinigame.NotePlayedEvent += OnNotePlayed;
 		}
 
 		private void OnDisable()
 		{
-			// TODO Unregister for on instrument play event
+			InstrumentMinigame.NotePlayedEvent -= OnNotePlayed;
 		}
 
-		private void OnPlay()
+		private void OnNotePlayed()
 		{
 			_animator.state.SetAnimation(1, PlayAnimations[_animationIndex % PlayAnimations.Count], false);
 			_animationIndex++;
