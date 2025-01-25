@@ -92,6 +92,7 @@ namespace Instruments
                 if (8 == Combo)
                 {
                     Timeline.Fade();
+                    LevelShakeManager.Instance.PlayWorldShake();
                     NextFadeTime = Mathf.Infinity;
                 }
                 else 
