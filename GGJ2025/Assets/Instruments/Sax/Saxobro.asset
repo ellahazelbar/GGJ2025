@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07052d5b133b534aa152d909e680ada, type: 3}
+  m_Name: Saxobro
+  m_EditorClassIdentifier: 
+  Intervals:
+  - Instrument: 0
+    PlayTime: 8
+    Duration: 40
+    Skip: 0
+    Notes:
+    - PlayTime: 11.54
+      Duration: 2
+    - PlayTime: 11.98
+      Duration: 2
+    - PlayTime: 14.29
+      Duration: 2
+    - PlayTime: 14.92
+      Duration: 2
+    - PlayTime: 17.54
+      Duration: 2
+    - PlayTime: 17.98
+      Duration: 2
+    - PlayTime: 20.29
+      Duration: 2
+    - PlayTime: 20.92
+      Duration: 2
+    - PlayTime: 23.35
+      Duration: 2
+    - PlayTime: 23.92
+      Duration: 2
+    - PlayTime: 26.31
+      Duration: 2
+    - PlayTime: 26.87
+      Duration: 2
+    - PlayTime: 29.71
+      Duration: 2
+    - PlayTime: 30.46
+      Duration: 2
+    - PlayTime: 31.02
+      Duration: 2
+    - PlayTime: 31.4
+      Duration: 2
+    - PlayTime: 31.96
+      Duration: 2
+    - PlayTime: 32.58
+      Duration: 2
+    - PlayTime: 32.96
+      Duration: 2
+    - PlayTime: 33.52
+      Duration: 2
+    - PlayTime: 34.02
+      Duration: 2
+    - PlayTime: 34.4
+      Duration: 2
+    - PlayTime: 34.96
+      Duration: 2
+    - PlayTime: 35.52
+      Duration: 2
+    - PlayTime: 35.96
+      Duration: 2
+    - PlayTime: 36.52
+      Duration: 2
+    - PlayTime: 37.08
+      Duration: 2
+    - PlayTime: 37.46
+      Duration: 2
+    - PlayTime: 38.02
+      Duration: 2
+    - PlayTime: 38.54
+      Duration: 2
+    - PlayTime: 38.91
+      Duration: 2
+    - PlayTime: 39.47
+      Duration: 2
+    - PlayTime: 39.97
+      Duration: 2
+    - PlayTime: 40.35
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 100
+    Duration: 100
+    Skip: 0
+    Notes:
+    - PlayTime: 41.36
+      Duration: 2
+    - PlayTime: 41.93
+      Duration: 2
+    - PlayTime: 44.3
+      Duration: 2
+    - PlayTime: 44.86
+      Duration: 2
+    - PlayTime: 47.36
+      Duration: 2
+    - PlayTime: 47.93
+      Duration: 2
+    - PlayTime: 50.24
+      Duration: 2
+    - PlayTime: 50.86
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 200
+    Duration: 100
+    Skip: 0
+    Notes:
+    - PlayTime: 53.74
+      Duration: 2
+    - PlayTime: 54.49
+      Duration: 2
+    - PlayTime: 55.05
+      Duration: 2
+    - PlayTime: 55.43
+      Duration: 2
+    - PlayTime: 56.05
+      Duration: 2
+    - PlayTime: 56.57
+      Duration: 2
+    - PlayTime: 56.94
+      Duration: 2
+    - PlayTime: 57.5
+      Duration: 2
+    - PlayTime: 58
+      Duration: 2
+    - PlayTime: 58.44
+      Duration: 2
+    - PlayTime: 59
+      Duration: 2
+    - PlayTime: 59.57
+      Duration: 2
+    - PlayTime: 59.94
+      Duration: 2
+    - PlayTime: 60.5
+      Duration: 2
+    - PlayTime: 61
+      Duration: 2
+    - PlayTime: 61.44
+      Duration: 2
+    - PlayTime: 62
+      Duration: 2
+    - PlayTime: 62.5
+      Duration: 2
+    - PlayTime: 62.88
+      Duration: 2
+    - PlayTime: 63.44
+      Duration: 2
+    - PlayTime: 63.94
+      Duration: 2
+    - PlayTime: 64.38
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 300
+    Duration: 100
+    Skip: 0
+    Notes:
+    - PlayTime: 65.33
+      Duration: 2
+    - PlayTime: 65.91
+      Duration: 2
+    - PlayTime: 68.36
+      Duration: 2
+    - PlayTime: 68.93
+      Duration: 2
+    - PlayTime: 71.36
+      Duration: 2
+    - PlayTime: 71.86
+      Duration: 2
+    - PlayTime: 74.36
+      Duration: 2
+    - PlayTime: 74.88
+      Duration: 2
+  TextFile: {fileID: 4900000, guid: cbac0af7efa92ad44a8c7ad239c60302, type: 3}
+  ReadOffset: -0.25
+  SpeedMultiplier: 1

@@ -244,34 +244,6 @@
             ]
         },
         {
-            "name": "Instrument",
-            "id": "56c525b7-7c07-4b50-b3cf-a806ed4362da",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "a0f0b8c8-e8d1-4ab6-94c9-1551172bc622",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "cd39b485-84e4-417a-991a-f26c3babde72",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "UI",
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [

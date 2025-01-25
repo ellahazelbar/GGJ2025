@@ -268,34 +268,6 @@ namespace Player
             ]
         },
         {
-            ""name"": ""Instrument"",
-            ""id"": ""56c525b7-7c07-4b50-b3cf-a806ed4362da"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""a0f0b8c8-e8d1-4ab6-94c9-1551172bc622"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""cd39b485-84e4-417a-991a-f26c3babde72"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""UI"",
             ""id"": ""272f6d14-89ba-496f-b7ff-215263d3219f"",
             ""actions"": [
@@ -848,9 +820,6 @@ namespace Player
             m_House_Interact = m_House.FindAction("Interact", throwIfNotFound: true);
             m_House_Dash = m_House.FindAction("Dash", throwIfNotFound: true);
             m_House_ChangeActiveCharacter = m_House.FindAction("ChangeActiveCharacter", throwIfNotFound: true);
-            // Instrument
-            m_Instrument = asset.FindActionMap("Instrument", throwIfNotFound: true);
-            m_Instrument_Newaction = m_Instrument.FindAction("New action", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -868,7 +837,6 @@ namespace Player
         ~@InputSystemActions()
         {
             UnityEngine.Debug.Assert(!m_House.enabled, "This will cause a leak and performance issues, InputSystemActions.House.Disable() has not been called.");
-            UnityEngine.Debug.Assert(!m_Instrument.enabled, "This will cause a leak and performance issues, InputSystemActions.Instrument.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystemActions.UI.Disable() has not been called.");
         }
 
@@ -997,52 +965,6 @@ namespace Player
             }
         }
         public HouseActions @House => new HouseActions(this);
-
-        // Instrument
-        private readonly InputActionMap m_Instrument;
-        private List<IInstrumentActions> m_InstrumentActionsCallbackInterfaces = new List<IInstrumentActions>();
-        private readonly InputAction m_Instrument_Newaction;
-        public struct InstrumentActions
-        {
-            private @InputSystemActions m_Wrapper;
-            public InstrumentActions(@InputSystemActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Newaction => m_Wrapper.m_Instrument_Newaction;
-            public InputActionMap Get() { return m_Wrapper.m_Instrument; }
-            public void Enable() { Get().Enable(); }
-            public void Disable() { Get().Disable(); }
-            public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(InstrumentActions set) { return set.Get(); }
-            public void AddCallbacks(IInstrumentActions instance)
-            {
-                if (instance == null || m_Wrapper.m_InstrumentActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_InstrumentActionsCallbackInterfaces.Add(instance);
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-
-            private void UnregisterCallbacks(IInstrumentActions instance)
-            {
-                @Newaction.started -= instance.OnNewaction;
-                @Newaction.performed -= instance.OnNewaction;
-                @Newaction.canceled -= instance.OnNewaction;
-            }
-
-            public void RemoveCallbacks(IInstrumentActions instance)
-            {
-                if (m_Wrapper.m_InstrumentActionsCallbackInterfaces.Remove(instance))
-                    UnregisterCallbacks(instance);
-            }
-
-            public void SetCallbacks(IInstrumentActions instance)
-            {
-                foreach (var item in m_Wrapper.m_InstrumentActionsCallbackInterfaces)
-                    UnregisterCallbacks(item);
-                m_Wrapper.m_InstrumentActionsCallbackInterfaces.Clear();
-                AddCallbacks(instance);
-            }
-        }
-        public InstrumentActions @Instrument => new InstrumentActions(this);
 
         // UI
         private readonly InputActionMap m_UI;
@@ -1185,10 +1107,6 @@ namespace Player
             void OnInteract(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
             void OnChangeActiveCharacter(InputAction.CallbackContext context);
-        }
-        public interface IInstrumentActions
-        {
-            void OnNewaction(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

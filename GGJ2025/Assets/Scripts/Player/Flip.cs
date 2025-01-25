@@ -1,6 +1,8 @@
 using UnityEngine;
 using TNRD.Autohook;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 
 namespace Player
 {
@@ -28,10 +30,18 @@ namespace Player
 			_previousDirection = newDirection;
 		}
 
-		private void AnimateFlip(float sign)
+		public TweenerCore<Vector3, Vector3, VectorOptions> TryAnimateFlip(float direction)
+		{
+			direction = Mathf.Sign(direction);
+			if (Mathf.Sign(transform.localScale.x) == direction)
+				return null;
+			return AnimateFlip(direction);
+		}
+
+		private TweenerCore<Vector3, Vector3, VectorOptions> AnimateFlip(float sign)
 		{
 			DOTween.Kill(this);
-			transform.DOScaleX(_defaultSize.x * sign, _animationDuration).SetEase(Ease.InOutSine).SetTarget(this);
+			return transform.DOScaleX(_defaultSize.x * sign, _animationDuration).SetEase(Ease.InOutSine).SetTarget(this);
 		}
 	}
 }
