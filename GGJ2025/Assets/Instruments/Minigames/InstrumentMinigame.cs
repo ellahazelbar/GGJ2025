@@ -8,14 +8,12 @@ namespace Instruments
     public class InstrumentMinigame : MonoBehaviour
     {
         public Timeline Timeline;
-        public InstrumentType Type;
 
         public UnityEngine.UI.Image ToasterImage;
         public float ToasterTime;
 
         public float AccuracyRange;
 
-        private bool recording;
         private Song.Interval currentPlayedInterval;
 
         public float NextFadeTime { get; private set; }
@@ -24,12 +22,25 @@ namespace Instruments
         private float nextPlayTime;
         public float NextShutoffTime { get; private set; }
 
+        public int Combo { get; private set; }
 
-        public void NotifyIncomingInterval(float PlayTime, float Duration)
+        private void Awake()
         {
-            nextPlayTime = PlayTime;
-            NextShutoffTime = PlayTime + Duration;
+            NextShutoffTime = nextPlayTime = Mathf.Infinity;
+        }
+
+        public void NotifyIncomingInterval(Song.Interval Interval)
+        {
+            Timeline.Unfade();
+            nextPlayTime = SongManager.Instance.SongTimeToTime(Interval.PlayTime);
+            NextShutoffTime = nextPlayTime + Interval.Duration;
             waitingForInterval = true;
+            currentPlayedInterval = Interval;
+            foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
+            {
+                Timeline.CreateNote(SongManager.Instance.SongTimeToTime(note.PlayTime), note.Duration);
+            }
+            new Utils.Timer<Song.Interval>(NextShutoffTime - Time.time, (Song.Interval inter) => { if (currentPlayedInterval == inter) currentPlayedInterval = null; }, Interval);
         }
 
         private void Update()
@@ -50,35 +61,9 @@ namespace Instruments
             else ToasterImage.fillAmount = 0;
         }
 
-        public void Activate(InstrumentType Type)
+        public void Activate()
         {
-            currentPlayedInterval = SongManager.Instance.GetCurrentInterval(Type);
-            if (null != currentPlayedInterval)
-            {
-                recording = true;
-                //intercept activator player input
-                foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
-                {
-                    Timeline.CreateNote(SongManager.Instance.SongTimeToTime(note.PlayTime), note.Duration);
-                }
-            }
-
-            /*
-            StartCoroutine(ScaleCanvas());
-
-            IEnumerator ScaleCanvas()
-            {
-                yield return new Utils.DoForSeconds<float, RectTransform>(OpenTime,
-                    (float StartTime, RectTransform Transform) =>
-                    {
-                        float x = CanvasScale.Evaluate((Time.time - StartTime) / OpenTime);
-                        Transform.localScale = new Vector3(x, x, x);
-                    }
-                    , Time.time, TimelineParent
-                );
-                TimelineParent.localScale = Vector3.one;
-            }
-            */
+            Combo = 0;
         }
 
         public void NotePlayed()
@@ -101,13 +86,22 @@ namespace Instruments
             if (null != hit)
             {
                 Timeline.NoteHit(hit);
-                if (null == nextNote) 
+                ++Combo;
+                if (8 == Combo)
                 {
+                    Timeline.Fade();
                     NextFadeTime = Mathf.Infinity;
                 }
-                else
-                {
-                    NextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
+                else 
+                { 
+                    if (null == nextNote) 
+                    {
+                        NextFadeTime = Mathf.Infinity;
+                    }
+                    else
+                    {
+                        NextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
+                    }
                 }
             }
             else

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,70 +9,69 @@ namespace Instruments
     {
         public float UnitsPerSecond;
         public GameObject NodePrefab;
+        public Image Hint;
+        public Color NoteColor = Color.white;
+
+        private bool faded;
 
 
-        public class Note
-        {
-            public float PlayTime;
-            public float Duration;
-            public float Lifetime;
-            public RectTransform Node;
-
-            public Note SetHeight(float UnitsPerSecond)
-            {
-                RectTransform r = Node.GetChild(0).GetComponent<RectTransform>();
-                r.sizeDelta = new Vector2(r.sizeDelta.x, Duration * UnitsPerSecond);
-                return this;
-            }
-        }
-
-        private List<Note> notesAlive;
-        private List<Note> toDestroy;
+        private List<TimelineNote> notesAlive;
 
         private void Awake()
         {
-            notesAlive = new List<Note>();
-            toDestroy = new List<Note>();
+            notesAlive = new List<TimelineNote>();
         }
 
         public void CreateNote(float PlayTime, float Duration)
         {
-            notesAlive.Add(new Note()
-                {
-                    Node = Instantiate(NodePrefab, transform).transform as RectTransform,
-                    PlayTime = PlayTime,
-                    Duration = Duration,
-                    Lifetime = Duration + 1
-                }.SetHeight(UnitsPerSecond)
-            );                
+            TimelineNote note = Instantiate(NodePrefab, transform).GetComponent<TimelineNote>();
+            note.Init(this, PlayTime, UnitsPerSecond);
+            notesAlive.Add(note);
+        }
+
+        public void Forget(TimelineNote Note)
+        {
+            notesAlive.Remove(Note);
         }
 
         public void NoteHit(Song.Interval.Note Note)
         {
-            foreach (Note n in notesAlive)
+            foreach (TimelineNote n in notesAlive)
             {
                 if (Mathf.Approximately(n.PlayTime, Note.PlayTime))
-                    toDestroy.Add(n);
+                {
+                    notesAlive.Remove(n);
+                    Destroy(n.gameObject);
+                    break;
+                }
             }
         }
 
-
-        private void LateUpdate()
+        public void Unfade()
         {
-            foreach (Note n in notesAlive)
+            faded = false;
+        }
+
+        public void Fade()
+        {
+            faded = true;
+            foreach (TimelineNote n in notesAlive)
             {
-                if (n.PlayTime + n.Duration < Time.time)
+                n.StartCoroutine(n.Fade());
+            }
+            StartCoroutine(FadeHint());
+        }
+
+        private IEnumerator FadeHint()
+        {
+            yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                (float StartTime, Color StartColor, Image Image) =>
                 {
-                    toDestroy.Add(n);
-                }
-                n.Node.anchoredPosition = new Vector2(0, (n.PlayTime - Time.time) * UnitsPerSecond);
-            }
-            foreach (Note n in toDestroy)
-            {
-                Destroy(n.Node.gameObject);
-                notesAlive.Remove(n);
-            }
-            toDestroy.Clear();
+                    Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
+                },
+                Time.time, Hint.color, Hint
+            );
+            Hint.color = Color.clear;
         }
     }
 }

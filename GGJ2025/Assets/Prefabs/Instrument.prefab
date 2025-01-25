@@ -262,6 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitsPerSecond: 2
   NodePrefab: {fileID: 5732439855915224809, guid: b7064565aafeb7647939138e3b326a5e, type: 3}
+  Hint: {fileID: 8758778059183264004}
+  NoteColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2378746276244135988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
+  m_ShowMaskGraphic: 0
 --- !u!1 &5959094826806755018
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timeline: {fileID: 2177493314257774276}
-  Type: 0
   ToasterImage: {fileID: 6769117569105217782}
   ToasterTime: 4
   AccuracyRange: 0.15

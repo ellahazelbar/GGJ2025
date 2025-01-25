@@ -45,15 +45,7 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
             if (0 < intervalsLeft.Count && TimeSongTime(Time.time) + LookAheadTime > intervalsLeft[0].PlayTime)
             {
                 Song.Interval inter = intervalsLeft[0];
-                instruments[i].Minigame.NotifyIncomingInterval(SongTimeToTime(inter.PlayTime), inter.Duration);
-                currentInterval[i] = inter;
-                //remove the current interval after its duration is ended
-                new Utils.Timer<Dictionary<InstrumentType, Song.Interval>, InstrumentType>
-                ( 
-                    inter.Duration - 0.05f,
-                    (a, b) => { a.Remove(b); },
-                    currentInterval, i
-                );
+                instruments[i].Minigame.NotifyIncomingInterval(inter);
                 intervalsLeft.RemoveAt(0);
             }
         }
