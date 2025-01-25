@@ -12,6 +12,8 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
 
     private Dictionary<InstrumentType, Song.Interval> currentInterval;
 
+    public AudioSource BGBass, BGVocals;
+
     public float SongStartTime;
     public float TimeSongTime(float Time) { return Time - SongStartTime; }
     public float SongTimeToTime(float SongTime) { return SongTime + SongStartTime; }
@@ -37,6 +39,8 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
         {
             ins.AudioSource.Play();
         }
+        BGBass.Play();
+        BGVocals.Play();
         SongStartTime = Time.time;
     }
 

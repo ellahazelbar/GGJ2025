@@ -7,6 +7,7 @@ namespace Instruments
     public class TimelineNote : MonoBehaviour
     {
         public Sprite[] AvailableSprites;
+        public AnimationCurve AlphaCurve;
 
         private Image im;
         private RectTransform re;
@@ -27,7 +28,11 @@ namespace Instruments
 
         void LateUpdate()
         {
-            re.anchoredPosition = new Vector2(0, (PlayTime - Time.time) * unitsPerSecond);
+            float timeToPlay = PlayTime - Time.time;
+            re.anchoredPosition = new Vector2(0, timeToPlay * unitsPerSecond);
+            Color c = im.color;
+            c.a = AlphaCurve.Evaluate(timeToPlay);
+            im.color = c;
         }
 
         public IEnumerator Fade()
