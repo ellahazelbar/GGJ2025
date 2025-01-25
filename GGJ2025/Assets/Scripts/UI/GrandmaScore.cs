@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class GrandmaScore : MonoBehaviour
 {
+    public static GrandmaScore Instance { get; private set; }
     
     [SerializeField] private int madScore = -50;
     [SerializeField] private int almostMadScore = -25;
     [SerializeField] private int almostHappyScore = 25;
     [SerializeField] private int happyScore = 50;
+    
+    [SerializeField] private int minScore = -12;
+    [SerializeField] private int maxScore = 12;
 
     [SerializeField] private Sprite madSprite;
     [SerializeField] private Sprite almostMadSprite;
@@ -25,9 +29,17 @@ public class GrandmaScore : MonoBehaviour
     private int currentScore = 0;
     private int currentGrandmaState = 0; // 0: Neutral, 1: Almost Mad, 2: Mad, 3: Almost Happy, 4: Happy
 
-    private void OnAddScore(int score)
+    private void Awake()
+    {
+        Instance = this;
+    }
+    public void OnAddScore(int score)
     {
         currentScore += score;
+        if(currentScore > maxScore)
+            currentScore = maxScore;
+        if(currentScore < minScore)
+            currentScore = minScore;
         CheckIfScoreThresholdReached(currentScore);
     }
     
