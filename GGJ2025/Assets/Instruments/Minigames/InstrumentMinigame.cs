@@ -96,7 +96,7 @@ namespace Instruments
                     LevelShakeManager.Instance.PlayWorldShake();
                     NextFadeTime = Mathf.Infinity;
                 }
-                else 
+                else if (Combo < 8)
                 { 
                     if (null == nextNote) 
                     {
