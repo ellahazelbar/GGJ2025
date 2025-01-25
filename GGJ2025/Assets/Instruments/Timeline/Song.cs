@@ -8,8 +8,12 @@ namespace Instruments
     {
         Microwave,
         Pots,
-        Grandma,
+        String,
         Blender,
+        Chair,
+        Glass,
+        Radiator,
+        Sandpaper,
 
         //Keep last
         Max
