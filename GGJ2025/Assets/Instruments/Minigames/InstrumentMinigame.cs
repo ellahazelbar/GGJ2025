@@ -88,6 +88,8 @@ namespace Instruments
             }
             if (null != hit)
             {
+                if(GrandmaScore.Instance != null)
+                    GrandmaScore.Instance.OnAddScore(1);
                 Timeline.NoteHit(hit);
                 ++Combo;
                 if (8 == Combo)
@@ -112,7 +114,8 @@ namespace Instruments
 			}
             else
             {
-                //play miss sound byte with random pitch
+                if(GrandmaScore.Instance != null)
+                    GrandmaScore.Instance.OnAddScore(-1);
             }
         }
     }
