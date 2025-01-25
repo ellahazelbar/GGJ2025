@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.Events;
 
 namespace Instruments
 {
@@ -23,6 +24,7 @@ namespace Instruments
         public float NextShutoffTime { get; private set; }
 
         public int Combo { get; private set; }
+        [Tooltip("Called when note is played sucessfully.")] public event UnityAction NotePlayedEvent;
 
         private void Awake()
         {
@@ -103,7 +105,9 @@ namespace Instruments
                         NextFadeTime = SongManager.Instance.SongTimeToTime(nextNote.PlayTime) + AccuracyRange / 2;
                     }
                 }
-            }
+				NotePlayedEvent?.Invoke();
+
+			}
             else
             {
                 //play miss sound byte with random pitch

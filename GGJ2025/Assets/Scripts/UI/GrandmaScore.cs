@@ -1,3 +1,5 @@
+using MoreMountains.Feedbacks;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,9 @@ public class GrandmaScore : MonoBehaviour
     [SerializeField] private Sprite happySprite;
 
     [SerializeField] private Image grandmaSpriteRenderer;
+    
+    [SerializeField] private MMF_Player positiveFeedbacks, negativeFeedbacks;
+    
 
     private int currentScore = 0;
     private int currentGrandmaState = 0; // 0: Neutral, 1: Almost Mad, 2: Mad, 3: Almost Happy, 4: Happy
@@ -25,26 +30,37 @@ public class GrandmaScore : MonoBehaviour
         currentScore += score;
         CheckIfScoreThresholdReached(currentScore);
     }
+    
+    [ContextMenu("Add 25 Score")]
+    public void Add25Score()
+    {
+        OnAddScore(25);
+    }
+    [ContextMenu("Remove 25 Score")]
+    public void Remove25Score()
+    {
+        OnAddScore(-25);
+    }
 
     private void CheckIfScoreThresholdReached( int newScore)
     {
-        if (newScore >= almostMadScore && newScore <= almostHappyScore && currentGrandmaState != 2)
+        if (newScore >= almostMadScore && newScore <= almostHappyScore && currentGrandmaState != 0)
         {
             UpdateGrandmaState(0, normalSprite);
         }
-        if (newScore <= madScore && currentGrandmaState != 2)
+        else if (newScore <= madScore && currentGrandmaState != -2)
         {
             UpdateGrandmaState(-2, madSprite);
         }
-        else if (newScore <= almostMadScore && newScore > madScore && currentGrandmaState != 1)
+        else if (newScore <= almostMadScore && newScore > madScore && currentGrandmaState != -1)
         {
             UpdateGrandmaState(-1, almostMadSprite);
         }
-        else if (newScore >= almostHappyScore && newScore < happyScore && currentGrandmaState != 3)
+        else if (newScore >= almostHappyScore && newScore < happyScore && currentGrandmaState != 1)
         {
             UpdateGrandmaState(1, almostHappySprite);
         }
-        else if (newScore >= happyScore && currentGrandmaState != 4)
+        else if (newScore >= happyScore && currentGrandmaState != 2)
         {
             UpdateGrandmaState(2, happySprite);
         }
@@ -52,7 +68,13 @@ public class GrandmaScore : MonoBehaviour
 
     private void UpdateGrandmaState(int newState, Sprite newSprite)
     {
-        int changeDirection = newState - currentGrandmaState;
+        int changeDirection;
+        if(newState > currentGrandmaState)
+            changeDirection = 1;
+        else
+            changeDirection = -1;
+        
+        Debug.Log(changeDirection);
         currentGrandmaState = newState;
 
         if (grandmaSpriteRenderer != null)
@@ -69,14 +91,14 @@ public class GrandmaScore : MonoBehaviour
             TriggerNegativeEffects();
         }
     }
-
+    
     private void TriggerPositiveEffects()
     {
-        Debug.Log("Grandma is Happy! Triggering Positive effects.");
+        positiveFeedbacks.PlayFeedbacks();
     }
     private void TriggerNegativeEffects()
     {
-        Debug.Log("Grandma is upset! Triggering negative effects.");
+        negativeFeedbacks.PlayFeedbacks();
     }
     
     
