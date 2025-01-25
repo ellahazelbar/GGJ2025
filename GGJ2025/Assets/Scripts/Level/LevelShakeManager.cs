@@ -1,22 +1,18 @@
 using System;
-using MoreMountains.Feedbacks;
-using Player;
 using UnityEngine;
 
 public class LevelShakeManager : MonoBehaviour
 {
     public static LevelShakeManager Instance { get; private set; }
-    public float distanceMultip = 1;
-    public static float distanceMultiplier {get => Instance.distanceMultip;}
-    public static event Action<Vector3> WorldShake;
+    public static event Action WorldShake;
     private void Awake()
     {
         Instance = this;
     }
     
-    public void PlayWorldShake(Vector3 position)
+    public void PlayWorldShake()
     {
-        WorldShake?.Invoke(position);
+        WorldShake?.Invoke();
     }
     
     

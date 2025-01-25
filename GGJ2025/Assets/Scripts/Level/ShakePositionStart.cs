@@ -8,6 +8,6 @@ public class ShakePositionStart : MonoBehaviour
     public void StartShake()
     {
         Debug.Log("Click");
-        LevelShakeManager.Instance.PlayWorldShake(_shakePosition.position);
+        LevelShakeManager.Instance.PlayWorldShake();
     }
 }
