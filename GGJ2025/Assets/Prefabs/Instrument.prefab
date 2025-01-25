@@ -265,7 +265,7 @@ MonoBehaviour:
   Hint: {fileID: 8758778059183264004}
   Base: {fileID: 1536610985664812233, guid: 730d79ffb0d5056449970322b30a22d4, type: 3}
   Input: {fileID: 5821445605626184884, guid: f69def03b65f8264fadef351ac79fd03, type: 3}
-  NoteColor: {r: 1, g: 1, b: 1, a: 1}
+  NoteColor: {r: 0, g: 0, b: 0, a: 1}
   OnHit: {fileID: 5629001675021016446}
   Passive: {fileID: 5343025783493961241}
 --- !u!114 &2378746276244135988
@@ -298,7 +298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1060790422674446400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -333,13 +333,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867217373304393554}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.111320674, g: 1, b: 0.96227455, a: 1}
+  m_Color: {r: 0.111320674, g: 1, b: 0.96227455, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -700,7 +700,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5533,7 +5533,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
