@@ -24,7 +24,7 @@ namespace Player
 			if (_rb.linearVelocity.sqrMagnitude > 0.1f)
 				SetAnimation(0, _runAnimation, true);
 			else
-				SetAnimation(0, _idleAnimation, false);
+				PlayIdleAnimation();
 		}
 
 		private void SetAnimation(int trackIndex, string animation, bool looping)
@@ -33,5 +33,7 @@ namespace Player
 				return;
 			_state.SetAnimation(trackIndex, animation, looping);
 		}
+
+		public void PlayIdleAnimation() => SetAnimation(0, _idleAnimation, false);
 	}
 }

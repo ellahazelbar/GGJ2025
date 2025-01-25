@@ -30,6 +30,7 @@ namespace Player
 
 		private void ShowStartAnimation(Instrument instrument)
 		{
+			_instrumentAnimator.InstrumentMinigame = instrument.Minigame;
 			var definition = _animationDefinition[(int)instrument.Type];
 			_instrumentAnimator.StartAnimation = definition.SetupAnimation;
 			_instrumentAnimator.PlayAnimations = definition;
