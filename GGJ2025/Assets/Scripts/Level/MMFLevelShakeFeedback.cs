@@ -1,13 +1,18 @@
+using System.Collections;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class MMFLevelShakeFeedback : MMF_Player
 {
-    
-    void Start()
+    protected override void Awake()
     {
-        LevelShakeManager.instance.WorldShake += PlayFeedbacks;
+        base.Awake();
+        LevelShakeManager.WorldShake += Play;
     }
 
-    
+    private void Play()
+    {
+        Debug.Log("Shake");
+        Extensions.MMF.StopAndPlayFeedbacks(this);
+    }
 }
