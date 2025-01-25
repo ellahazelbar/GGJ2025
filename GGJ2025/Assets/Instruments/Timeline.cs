@@ -25,6 +25,15 @@ namespace Instruments
             notesAlive = new List<TimelineNote>();
         }
 
+        private void Start()
+        {
+            ParticleSystem.MainModule main = OnHit.main;
+            main.startColor = NoteColor;
+            //OnHit.main = main;
+            main = Passive.main;
+            main.startColor = NoteColor;
+        }
+
         public void CreateNote(float PlayTime, float Duration)
         {
             TimelineNote note = Instantiate(NodePrefab, transform).GetComponent<TimelineNote>();
