@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3007106882427205195}
   - component: {fileID: 4716664288647765116}
   m_Layer: 0
-  m_Name: Choche Feedback
+  m_Name: Feedback Shake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
