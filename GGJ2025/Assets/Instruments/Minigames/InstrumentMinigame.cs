@@ -72,6 +72,7 @@ namespace Instruments
         {
             if (null == currentPlayedInterval)
                 return;
+            Timeline.NotePlayed();
             Song.Interval.Note hit = null;
             Song.Interval.Note nextNote = null;
             foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
