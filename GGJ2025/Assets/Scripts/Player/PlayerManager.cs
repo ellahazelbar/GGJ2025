@@ -34,6 +34,8 @@ namespace Player
 		{
 			Input.Enable();
 			Input.House.ChangeActiveCharacter.started += OnActiveCharacterChanged;
+			foreach (var character in Characters)
+				character.Owner = this;
 		}
 
 		private void OnDisable()
