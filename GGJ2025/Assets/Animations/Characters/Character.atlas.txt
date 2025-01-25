@@ -1,233 +1,283 @@
 Character.png
-size:1999,1863
+size:2044,1964
 filter:Linear,Linear
 pma:true
 A
-bounds:979,1722,170,141
+bounds:159,1555,170,141
 A Fork
-bounds:837,847,420,258
+bounds:983,429,420,258
 Alice Back Arm
-bounds:1293,1093,259,255
+bounds:1123,956,259,255
 Alice Back Hand
-bounds:340,1575,152,201
+bounds:1202,1463,152,201
 rotate:90
 Alice Back Leg
-bounds:251,1385,284,188
+bounds:1163,1213,284,188
 Alice Front Arm
-bounds:1259,833,258,260
+bounds:1384,934,258,260
 rotate:90
 Alice Front Hand
-bounds:543,1568,159,196
+bounds:1405,1403,159,196
 rotate:90
 Alice Front Leg
-bounds:537,1359,195,251
+bounds:1449,1194,195,251
 rotate:90
 Bling Bling Fork
-bounds:0,1782,81,341
+bounds:1090,1883,81,341
 rotate:90
 C
-bounds:1151,1722,170,141
+bounds:331,1555,170,141
 C Fork
-bounds:1521,826,420,258
+bounds:0,413,420,258
 Chloe Back Arm
-bounds:0,679,272,260
+bounds:832,815,272,260
 Chloe Back Foot
-bounds:790,1352,291,195
+bounds:0,1185,291,195
 Chloe Back Hand
-bounds:0,1440,249,187
+bounds:912,1275,249,187
 Chloe Front Arm
-bounds:1674,556,279,268
+bounds:702,545,279,268
 Chloe Front Foot
-bounds:0,1187,202,251
+bounds:1702,1068,202,251
+rotate:90
 Chloe Front Hand
-bounds:1685,1529,202,184
+bounds:708,1362,202,184
+Hand L A
+bounds:1433,1833,162,131
+Hand L C
+bounds:1597,1833,162,131
+Hand L J
+bounds:1761,1833,162,131
+Hand L P
+bounds:1081,1750,162,131
+Hand R A
+bounds:1245,1750,162,131
+Hand R C
+bounds:1409,1700,162,131
+Hand R J
+bounds:1573,1700,162,131
+Hand R P
+bounds:1737,1700,162,131
 J
-bounds:1323,1722,170,141
+bounds:503,1555,170,141
 JB Back Arm
-bounds:1389,559,283,265
+bounds:0,675,283,265
 JB Back Foot
-bounds:1083,1352,280,195
+bounds:293,1185,280,195
 JB Back Hand
-bounds:1825,1715,148,174
+bounds:847,1548,148,174
 rotate:90
 JB Front Arm
-bounds:273,330,279,268
+bounds:695,275,279,268
 JB Front Foot
-bounds:1365,1350,196,249
-rotate:90
+bounds:1839,1272,196,249
 JB Front Hand
-bounds:161,1629,151,177
+bounds:1023,1464,151,177
 rotate:90
 Jb Fork
-bounds:274,600,420,258
+bounds:1405,293,420,258
 Left Alice Spoon
-bounds:554,312,273,453
+bounds:0,126,273,453
 rotate:90
 Left Alice Toilet
-bounds:741,1556,234,171
+bounds:1603,1391,234,171
 Left Chloe Spoon
-bounds:1009,284,273,453
+bounds:1398,18,273,453
 rotate:90
 Left Chloe Toilet
-bounds:977,1549,234,171
+bounds:0,1382,234,171
 Left Job Spoon
-bounds:1464,281,273,453
+bounds:455,0,273,453
 rotate:90
 Left Job Stick
-bounds:461,1109,241,413
+bounds:0,942,241,413
 rotate:90
 Left Job Toilet
-bounds:1213,1549,234,171
-Left Philip Spoon
-bounds:0,53,275,455
-rotate:90
+bounds:236,1382,234,171
 Left Philip Toilet
-bounds:1449,1548,234,171
+bounds:472,1382,234,171
 Oven A
-bounds:343,1729,157,134
+bounds:1408,1564,157,134
 Oven C
-bounds:502,1729,157,134
+bounds:1567,1564,157,134
 Oven J
-bounds:661,1729,157,134
+bounds:1726,1564,157,134
 Oven P
-bounds:820,1729,157,134
+bounds:0,1562,157,134
 P
-bounds:1495,1722,170,141
+bounds:675,1555,170,141
 P Fork
-bounds:696,587,420,258
+bounds:976,169,420,258
 Phillip Back Arm
-bounds:1118,567,264,269
+bounds:1646,802,264,269
 rotate:90
 Phillip Back Hand
-bounds:1667,1721,142,156
-rotate:90
+bounds:1901,1675,142,156
 Phillip Back Leg
-bounds:1616,1331,289,196
+bounds:575,1164,289,196
 Phillip Front Arm
-bounds:0,407,271,270
+bounds:422,401,271,270
 Phillip Front Hand
-bounds:0,1630,150,159
+bounds:1885,1523,150,159
 rotate:90
 Phillip Front Leg
-bounds:204,1187,196,255
+bounds:866,1077,196,255
 rotate:90
-Right Alice Spoon
-bounds:457,31,279,458
-rotate:90
+Point L A
+bounds:0,1698,174,131
+Point L C
+bounds:176,1698,174,131
+Point L J
+bounds:352,1698,174,131
+Point L P
+bounds:528,1698,174,131
+Point R A
+bounds:704,1698,174,131
+Point R C
+bounds:880,1698,174,131
+Point R J
+bounds:1056,1617,174,131
+Point R P
+bounds:1232,1617,174,131
 Right Alice Stick
-bounds:876,1107,243,415
-rotate:90
-Right Chloe Spoon
-bounds:917,3,279,458
+bounds:415,919,243,415
 rotate:90
 Right Chloe Stick
-bounds:417,860,247,418
-rotate:90
-Right Job Spoon
-bounds:1377,0,279,458
+bounds:1523,553,247,418
 rotate:90
 Right Job Stick
-bounds:1554,1086,243,415
+bounds:1106,689,243,415
 rotate:90
 Right Philip Stick
-bounds:0,941,244,415
+bounds:285,673,244,415
+rotate:90
+String
+bounds:0,1952,12,1088
+rotate:90
+String Active 1
+bounds:0,1892,58,1059
+rotate:90
+String Active 2
+bounds:0,1831,59,1079
 rotate:90
 
 Character_2.png
-size:1995,1993
-filter:Linear,Linear
-pma:true
-Blender Active 1
-bounds:869,1375,618,1126
-rotate:90
-Blender Active 2
-bounds:869,160,618,1126
-rotate:90
-Chair
-bounds:0,766,725,1227
-Closed
-bounds:0,0,764,867
-rotate:90
-JB Head
-bounds:727,780,570,593
-Shoo J
-bounds:1299,782,568,591
-
-Character_3.png
-size:1964,2047
+size:2046,1936
 filter:Linear,Linear
 pma:true
 1 C
-bounds:1490,70,474,381
+bounds:444,539,474,381
 2 C
-bounds:901,0,587,451
-Blender Idle
-bounds:0,52,618,1126
-Glass
-bounds:620,736,302,442
-Half Open
-bounds:924,1211,836,867
-rotate:90
-Open
-bounds:0,1180,922,867
-Pot
-bounds:924,453,926,756
-Right Philip Spoon
-bounds:620,276,279,458
-
-Character_4.png
-size:1919,1807
-filter:Linear,Linear
-pma:true
+bounds:920,467,587,451
 3 C
-bounds:1332,981,587,457
+bounds:0,80,587,457
 A Glass With Hands
-bounds:1249,1440,367,442
+bounds:417,984,367,442
 rotate:90
 Alice Body
-bounds:582,611,540,458
-Alice Head
-bounds:1114,0,577,519
+bounds:1171,0,540,458
 C Glass With Hands
-bounds:0,1072,367,442
+bounds:861,922,367,442
 rotate:90
 Chloe Body
-bounds:0,613,580,457
+bounds:589,8,580,457
+Glass
+bounds:460,1353,302,442
+rotate:90
 JB Body
-bounds:1124,521,537,458
+bounds:1509,460,537,458
 JB Glass With Hands
-bounds:444,1072,367,442
+bounds:1305,920,367,442
 rotate:90
 Left Alice Stick
-bounds:415,1441,366,415
+bounds:1319,1289,366,415
 rotate:90
 Left Chloe Stick
-bounds:0,1443,364,413
+bounds:904,1291,364,413
+rotate:90
+Left Philip Spoon
+bounds:0,1661,275,455
 rotate:90
 Left Philip Stick
-bounds:832,1441,366,415
+bounds:0,1008,366,415
 rotate:90
 P Glass With Hands
-bounds:888,1071,367,442
+bounds:0,615,367,442
 rotate:90
-Phillip Body
-bounds:0,153,535,458
-Shoo A
-bounds:537,92,575,517
+Right Alice Spoon
+bounds:457,1657,279,458
+rotate:90
+Right Chloe Spoon
+bounds:917,1657,279,458
+rotate:90
+Right Job Spoon
+bounds:1377,1657,279,458
+rotate:90
+Right Philip Spoon
+bounds:0,1376,279,458
+rotate:90
 
-Character_5.png
-size:1194,1272
+Character_3.png
+size:1721,1709
 filter:Linear,Linear
 pma:true
-Chloe Head
-bounds:0,636,636,660
+Alice Head
+bounds:1114,1190,577,519
+Blender Active 1
+bounds:595,0,618,1126
+rotate:90
+JB Head
+bounds:0,84,570,593
 rotate:90
 Philip Head
-bounds:660,76,558,534
-rotate:90
-Shoo C
-bounds:0,0,634,658
+bounds:534,656,558,534
+Phillip Body
+bounds:0,1251,535,458
+Shoo A
+bounds:537,1192,575,517
+Shoo J
+bounds:1094,620,568,591
 rotate:90
 Shoo P
-bounds:662,716,556,532
+bounds:0,693,556,532
 rotate:90
+
+Character_4.png
+size:1795,2038
+filter:Linear,Linear
+pma:true
+Blender Active 2
+bounds:0,1420,618,1126
+rotate:90
+Blender Idle
+bounds:0,800,618,1126
+rotate:90
+Chloe Head
+bounds:1128,766,636,660
+rotate:90
+Closed
+bounds:928,0,764,867
+rotate:90
+Pot
+bounds:0,42,926,756
+Shoo C
+bounds:1128,1404,634,658
+rotate:90
+
+Character_5.png
+size:1829,1324
+filter:Linear,Linear
+pma:true
+Chair
+bounds:1104,97,725,1227
+Radiator
+bounds:0,0,1102,1324
+
+Character_6.png
+size:1760,867
+filter:Linear,Linear
+pma:true
+Half Open
+bounds:924,0,836,867
+Open
+bounds:0,0,922,867

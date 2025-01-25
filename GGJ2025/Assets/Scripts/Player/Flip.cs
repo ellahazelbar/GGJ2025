@@ -28,6 +28,14 @@ namespace Player
 			_previousDirection = newDirection;
 		}
 
+		public void TryAnimateFlip(float direction)
+		{
+			direction = Mathf.Sign(direction);
+			if (Mathf.Sign(transform.localScale.x) == direction)
+				return;
+			AnimateFlip(direction);
+		}
+
 		private void AnimateFlip(float sign)
 		{
 			DOTween.Kill(this);
