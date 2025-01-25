@@ -18,23 +18,43 @@ namespace Player
 
 		public event UnityAction<Instrument> InstrumentActivated;
 
+		private bool attachedToMinigame;
+
 		private void OnEnable()
 		{
 			_player.Input.House.Interact.started += OnInteract;
+			_player.Input.House.Dash.started += OnDisengage;
 		}
 
 		private void OnDisable()
 		{
 			_player.Input.House.Interact.started -= OnInteract;
+			_player.Input.House.Dash.started -= OnDisengage;
 		}
 
 		private void OnInteract(InputAction.CallbackContext context)
 		{
-			var current = _instrumentPointer.Current;
+			Instrument current = _instrumentPointer.Current;
 			if (null == current)
 				return;
 			InstrumentActivated?.Invoke(current);
-			current.Activate();
+			attachedToMinigame = true;
+			current.Activate(this);
+		}
+
+		private void OnDisengage(InputAction.CallbackContext context)
+        {
+			Disengage();
+        }
+
+		public void Disengage()
+        {
+			Instrument current = _instrumentPointer.Current;
+			if (attachedToMinigame && null != current)
+			{
+				current.Deactivate();
+				attachedToMinigame = false;
+			}
 		}
 	}
 }

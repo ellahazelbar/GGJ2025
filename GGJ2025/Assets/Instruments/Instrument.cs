@@ -12,7 +12,7 @@ namespace Instruments
 
         public AnimationCurve FadeCurve;
 
-        private bool active;
+        private Player.PlayerInstrumentActivator attached;
 
         private void Start()
         {
@@ -20,22 +20,22 @@ namespace Instruments
             Deactivate();
         }
 
-        public void Activate()
+        public void Activate(Player.PlayerInstrumentActivator Attached)
         {
-            if (active)
+            if (attached)
             {
                 Minigame.NotePlayed();
             }
             else
             {
-                active = true;
-                Minigame.Activate(Type);
+                attached = Attached;
+                Minigame.Activate();
             }
         }
 
         private void Update()
         {
-            if (active)
+            if (attached)
             {
                 if (Minigame.NextFadeTime < Time.time)
                 {
@@ -43,8 +43,9 @@ namespace Instruments
                 }
                 else AudioSource.volume = Mathf.MoveTowards(AudioSource.volume, 1, Time.deltaTime / Minigame.AccuracyRange);
                 if (Minigame.NextShutoffTime < Time.time)
-                {
-                    active = false;
+                { 
+                    if (null != attached)
+                        attached.Disengage();
                 }
             }
         }
@@ -52,7 +53,7 @@ namespace Instruments
         public void Deactivate()
         {
             AudioSource.volume = 0;
-            active = false;
+            attached = null;
         }
     }
 }
