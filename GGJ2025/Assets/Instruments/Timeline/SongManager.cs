@@ -3,7 +3,7 @@ using Instruments;
 using System.Collections.Generic;
 public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
 {
-    public Song Song;
+    public List<Song> Songs;
     public float LookAheadTime = 10;
 
     private Dictionary<InstrumentType, List<Song.Interval>> intervalsPerInstrument;
@@ -27,7 +27,7 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
 
     private void Start()
     {
-        intervalsPerInstrument = Song.SortedIntervals();
+        intervalsPerInstrument = Song.SortedIntervals(Songs);
     }
 
     public void RegisterInstrument(InstrumentType Type, Instrument Instrument)
