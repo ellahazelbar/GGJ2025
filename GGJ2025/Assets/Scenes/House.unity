@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d56ab37ffa56e4196f111e3081d276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Song: {fileID: 11400000, guid: 6dd80c01cfcd8414a9eb8bdda3827132, type: 2}
+  Songs: []
   LookAheadTime: 10
   SongStartTime: 0
 --- !u!4 &705797588
@@ -719,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[0].Y
-      value: 40683
+      value: 137730352
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].Y
@@ -727,15 +727,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].Y
-      value: 137759440
+      value: -674047
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
-      value: -2555198
+      value: -3299036
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[0].Y
-      value: 137730352
+      value: 40683
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[1].Y
@@ -743,11 +743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[2].Y
-      value: -674047
+      value: 137759440
       objectReference: {fileID: 0}
     - target: {fileID: 3304864528531849163, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[3].Y
-      value: -3299036
+      value: -2555198
       objectReference: {fileID: 0}
     - target: {fileID: 8489582647327289827, guid: cf92ba6411eb79b4ba9d201eec88aef3, type: 3}
       propertyPath: m_LocalPosition.x
