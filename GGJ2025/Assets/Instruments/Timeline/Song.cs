@@ -58,5 +58,47 @@ namespace Instruments
             }
             return res;
         }
+
+        public TextAsset TextFile;
+
+        public float ReadOffset;
+        public float SpeedMultiplier;
+
+        [ContextMenu("ReadTextAsset")]
+        public void ReadTextFile()
+        {
+            Intervals.Clear();
+            string text = TextFile.text;
+            string[] lines = text.Split('\n');
+            Interval current = null;
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrEmpty(line))
+                    continue;
+                if (line[0] == '[')
+                {
+                    string min = line.Substring(1, 2), time = line.Substring(4, 5);
+                    float playTime = ((60f * int.Parse(min)) + float.Parse(time) + ReadOffset) * SpeedMultiplier;
+                    current.Notes.Add(new Interval.Note { Duration = 2, PlayTime = playTime });
+                }
+                else 
+                {
+                    string[] nums = line.Split(' ');
+                    if (3 == nums.Length && int.TryParse(nums[0], out int instrument) && float.TryParse(nums[1], out float playTime) && float.TryParse(nums[2], out float duration))
+                    {
+                        if (null != current)
+                            Intervals.Add(current);
+                        current = new Interval
+                        {
+                            Duration = duration,
+                            PlayTime = playTime,
+                            Instrument = (InstrumentType)instrument,
+                            Notes = new()
+                        };
+                    }
+                }
+            }
+            Intervals.Add(current);
+        }
     }
 }

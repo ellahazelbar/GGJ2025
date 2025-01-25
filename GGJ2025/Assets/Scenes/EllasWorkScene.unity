@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d56ab37ffa56e4196f111e3081d276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Song: {fileID: 11400000, guid: 6dd80c01cfcd8414a9eb8bdda3827132, type: 2}
+  Song: {fileID: 11400000, guid: 8b0d4822291d2fe4b99aa6c1a4c24b7c, type: 2}
   LookAheadTime: 10
   SongStartTime: 0
 --- !u!4 &705797588
