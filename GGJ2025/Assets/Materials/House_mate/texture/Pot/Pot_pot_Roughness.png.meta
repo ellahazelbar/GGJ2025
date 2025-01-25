@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pot_pot_Roughness_0: 6925684387628854493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

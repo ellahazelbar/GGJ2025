@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_top_aiStandardSurface29_Height_0: 2707570050013850507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

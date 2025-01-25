@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Table_Table_Leg_BadSide_3_leg_Height_0: -5305342504185533797
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

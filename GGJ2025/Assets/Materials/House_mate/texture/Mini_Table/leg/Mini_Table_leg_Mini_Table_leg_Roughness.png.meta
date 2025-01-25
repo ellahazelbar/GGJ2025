@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_leg_Mini_Table_leg_Roughness_0: -9171762688921026737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

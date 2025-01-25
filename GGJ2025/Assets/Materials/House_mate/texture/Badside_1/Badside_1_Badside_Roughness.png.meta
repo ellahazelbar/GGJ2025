@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Badside_1_Badside_Roughness_0: -2832463422540962680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

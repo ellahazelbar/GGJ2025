@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tv_Tv_arm_BaseColor_0: 1387717810828296923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

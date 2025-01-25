@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Badside_1_Badside_Emissive_0: -7464456595263040656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

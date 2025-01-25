@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      oven_aiStandardSurface27_Metallic_0: 28674229380905249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

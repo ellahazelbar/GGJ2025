@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      oven_aiStandardSurface27_Height_0: -2373820642593456925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

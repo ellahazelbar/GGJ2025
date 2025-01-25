@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pot_pot_BaseColor_0: -1227009808702659054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

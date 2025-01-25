@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tv_Tv_arm_Height_0: 6567936613369180553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_top_LivingRoom_table_top_Roughness_0: 886102917225651661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

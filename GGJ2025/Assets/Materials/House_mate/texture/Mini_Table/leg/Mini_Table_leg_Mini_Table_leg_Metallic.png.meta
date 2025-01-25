@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_leg_Mini_Table_leg_Metallic_0: -2539115497910965078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

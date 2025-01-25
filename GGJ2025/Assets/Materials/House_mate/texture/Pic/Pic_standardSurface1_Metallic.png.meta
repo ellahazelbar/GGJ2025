@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pic_standardSurface1_Metallic_0: 8103673769352146549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

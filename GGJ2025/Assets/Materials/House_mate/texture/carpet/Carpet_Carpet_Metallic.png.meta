@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Carpet_Carpet_Metallic_0: -4642249467027466609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

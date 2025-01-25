@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_leg_LevingRoom_Table_legs_Height_0: -5197413652438120263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

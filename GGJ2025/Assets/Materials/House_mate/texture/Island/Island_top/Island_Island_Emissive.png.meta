@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Island_Island_Emissive_0: 1900212918933955499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

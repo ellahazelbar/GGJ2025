@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_top_aiStandardSurface29_BaseColor_0: -2869952197713321829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

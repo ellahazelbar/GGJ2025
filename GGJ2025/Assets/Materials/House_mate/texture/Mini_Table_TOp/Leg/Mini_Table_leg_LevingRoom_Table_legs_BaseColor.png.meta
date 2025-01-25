@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mini_Table_leg_LevingRoom_Table_legs_BaseColor_0: 8858623636064632808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

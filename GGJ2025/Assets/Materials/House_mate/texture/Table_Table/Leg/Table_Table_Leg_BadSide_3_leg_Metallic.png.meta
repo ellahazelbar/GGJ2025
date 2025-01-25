@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Table_Table_Leg_BadSide_3_leg_Metallic_0: 4515601651310397127
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
