@@ -44,17 +44,19 @@ namespace Instruments
         /// Expensive. Call and cache result.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<InstrumentType, List<Interval>> SortedIntervals()
+        public static Dictionary<InstrumentType, List<Interval>> SortedIntervals(List<Song> Songs)
         {
             Dictionary<InstrumentType, List<Interval>> res = new();
             for (int i = 0; i < (int)InstrumentType.Max; i++)
             {
                 res.Add((InstrumentType)i, new List<Interval>());
             }
-            foreach (Interval i in Intervals)
-            {
-                if (!i.Skip)
-                    res[i.Instrument].Add(i);
+            foreach (Song song in Songs) {
+                foreach (Interval i in song.Intervals)
+                {
+                    if (!i.Skip)
+                        res[i.Instrument].Add(i);
+                }
             }
             foreach (List<Interval> inters in res.Values)
             {

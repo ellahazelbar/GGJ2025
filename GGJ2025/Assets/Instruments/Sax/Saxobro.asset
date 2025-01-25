@@ -15,7 +15,7 @@ MonoBehaviour:
   Intervals:
   - Instrument: 0
     PlayTime: 8
-    Duration: 8
+    Duration: 40
     Skip: 0
     Notes:
     - PlayTime: 11.54
@@ -42,11 +42,6 @@ MonoBehaviour:
       Duration: 2
     - PlayTime: 26.87
       Duration: 2
-  - Instrument: 0
-    PlayTime: 27.5
-    Duration: 14.3
-    Skip: 0
-    Notes:
     - PlayTime: 29.71
       Duration: 2
     - PlayTime: 30.46
