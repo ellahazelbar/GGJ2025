@@ -72,6 +72,7 @@ namespace Instruments
         {
             if (null == currentPlayedInterval)
                 return;
+            Timeline.NotePlayed();
             Song.Interval.Note hit = null;
             Song.Interval.Note nextNote = null;
             foreach (Song.Interval.Note note in currentPlayedInterval.Notes)
@@ -92,9 +93,10 @@ namespace Instruments
                 if (8 == Combo)
                 {
                     Timeline.Fade();
+                    LevelShakeManager.Instance.PlayWorldShake();
                     NextFadeTime = Mathf.Infinity;
                 }
-                else 
+                else if (Combo < 8)
                 { 
                     if (null == nextNote) 
                     {

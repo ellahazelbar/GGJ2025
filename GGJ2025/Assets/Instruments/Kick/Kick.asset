@@ -1,0 +1,372 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07052d5b133b534aa152d909e680ada, type: 3}
+  m_Name: Kick
+  m_EditorClassIdentifier: 
+  Intervals:
+  - Instrument: 0
+    PlayTime: -3.35
+    Duration: 19.359999
+    Skip: 0
+    Notes:
+    - PlayTime: 1.65
+      Duration: 2
+    - PlayTime: 2.15
+      Duration: 2
+    - PlayTime: 3.53
+      Duration: 2
+    - PlayTime: 4.53
+      Duration: 2
+    - PlayTime: 4.96
+      Duration: 2
+    - PlayTime: 6.34
+      Duration: 2
+    - PlayTime: 7.21
+      Duration: 2
+    - PlayTime: 7.71
+      Duration: 2
+    - PlayTime: 9.09
+      Duration: 2
+    - PlayTime: 10.09
+      Duration: 2
+    - PlayTime: 10.53
+      Duration: 2
+    - PlayTime: 12.03
+      Duration: 2
+    - PlayTime: 12.78
+      Duration: 2
+    - PlayTime: 13.28
+      Duration: 2
+    - PlayTime: 14.59
+      Duration: 2
+    - PlayTime: 15.53
+      Duration: 2
+    - PlayTime: 15.959999
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 12.959999
+    Duration: 15.490001
+    Skip: 0
+    Notes:
+    - PlayTime: 17.96
+      Duration: 2
+    - PlayTime: 18.78
+      Duration: 2
+    - PlayTime: 19.28
+      Duration: 2
+    - PlayTime: 20.09
+      Duration: 2
+    - PlayTime: 20.65
+      Duration: 2
+    - PlayTime: 21.53
+      Duration: 2
+    - PlayTime: 22.09
+      Duration: 2
+    - PlayTime: 22.9
+      Duration: 2
+    - PlayTime: 23.46
+      Duration: 2
+    - PlayTime: 24.28
+      Duration: 2
+    - PlayTime: 24.78
+      Duration: 2
+    - PlayTime: 25.65
+      Duration: 2
+    - PlayTime: 26.15
+      Duration: 2
+    - PlayTime: 27.03
+      Duration: 2
+    - PlayTime: 27.53
+      Duration: 2
+    - PlayTime: 28.4
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 23.43
+    Duration: 27.07
+    Skip: 0
+    Notes:
+    - PlayTime: 28.43
+      Duration: 2
+    - PlayTime: 29.31
+      Duration: 2
+    - PlayTime: 29.75
+      Duration: 2
+    - PlayTime: 31.06
+      Duration: 2
+    - PlayTime: 32
+      Duration: 2
+    - PlayTime: 32.5
+      Duration: 2
+    - PlayTime: 33.81
+      Duration: 2
+    - PlayTime: 34.68
+      Duration: 2
+    - PlayTime: 35.25
+      Duration: 2
+    - PlayTime: 36.5
+      Duration: 2
+    - PlayTime: 37.43
+      Duration: 2
+    - PlayTime: 38
+      Duration: 2
+    - PlayTime: 39.26
+      Duration: 2
+    - PlayTime: 39.95
+      Duration: 2
+    - PlayTime: 40.76
+      Duration: 2
+    - PlayTime: 41.32
+      Duration: 2
+    - PlayTime: 42.14
+      Duration: 2
+    - PlayTime: 42.64
+      Duration: 2
+    - PlayTime: 43.51
+      Duration: 2
+    - PlayTime: 44.01
+      Duration: 2
+    - PlayTime: 44.95
+      Duration: 2
+    - PlayTime: 45.45
+      Duration: 2
+    - PlayTime: 46.26
+      Duration: 2
+    - PlayTime: 46.82
+      Duration: 2
+    - PlayTime: 47.76
+      Duration: 2
+    - PlayTime: 48.2
+      Duration: 2
+    - PlayTime: 49.01
+      Duration: 2
+    - PlayTime: 49.57
+      Duration: 2
+    - PlayTime: 50.45
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 46.39
+    Duration: 13.750001
+    Skip: 0
+    Notes:
+    - PlayTime: 51.39
+      Duration: 2
+    - PlayTime: 51.82
+      Duration: 2
+    - PlayTime: 53.2
+      Duration: 2
+    - PlayTime: 53.89
+      Duration: 2
+    - PlayTime: 54.45
+      Duration: 2
+    - PlayTime: 55.95
+      Duration: 2
+    - PlayTime: 56.84
+      Duration: 2
+    - PlayTime: 57.34
+      Duration: 2
+    - PlayTime: 58.71
+      Duration: 2
+    - PlayTime: 59.59
+      Duration: 2
+    - PlayTime: 60.09
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 56.59
+    Duration: 16.489998
+    Skip: 0
+    Notes:
+    - PlayTime: 61.59
+      Duration: 2
+    - PlayTime: 62.03
+      Duration: 2
+    - PlayTime: 62.78
+      Duration: 2
+    - PlayTime: 63.4
+      Duration: 2
+    - PlayTime: 64.21
+      Duration: 2
+    - PlayTime: 64.71
+      Duration: 2
+    - PlayTime: 65.59
+      Duration: 2
+    - PlayTime: 66.09
+      Duration: 2
+    - PlayTime: 67.03
+      Duration: 2
+    - PlayTime: 67.53
+      Duration: 2
+    - PlayTime: 68.4
+      Duration: 2
+    - PlayTime: 68.9
+      Duration: 2
+    - PlayTime: 69.84
+      Duration: 2
+    - PlayTime: 70.28
+      Duration: 2
+    - PlayTime: 71.21
+      Duration: 2
+    - PlayTime: 71.65
+      Duration: 2
+    - PlayTime: 72.53
+      Duration: 2
+    - PlayTime: 73.03
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 68.9
+    Duration: 13.310002
+    Skip: 0
+    Notes:
+    - PlayTime: 73.9
+      Duration: 2
+    - PlayTime: 75.84
+      Duration: 2
+    - PlayTime: 75.66
+      Duration: 2
+    - PlayTime: 76.66
+      Duration: 2
+    - PlayTime: 78.479996
+      Duration: 2
+    - PlayTime: 79.35
+      Duration: 2
+    - PlayTime: 81.29
+      Duration: 2
+    - PlayTime: 82.16
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 90.07
+    Duration: 13.000005
+    Skip: 0
+    Notes:
+    - PlayTime: 95.07
+      Duration: 2
+    - PlayTime: 96.020004
+      Duration: 2
+    - PlayTime: 96.520004
+      Duration: 2
+    - PlayTime: 97.46
+      Duration: 2
+    - PlayTime: 97.96
+      Duration: 2
+    - PlayTime: 98.83
+      Duration: 2
+    - PlayTime: 99.33
+      Duration: 2
+    - PlayTime: 100.21
+      Duration: 2
+    - PlayTime: 100.71
+      Duration: 2
+    - PlayTime: 101.64
+      Duration: 2
+    - PlayTime: 102.08
+      Duration: 2
+    - PlayTime: 103.020004
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 101.21
+    Duration: 23.890003
+    Skip: 0
+    Notes:
+    - PlayTime: 106.21
+      Duration: 2
+    - PlayTime: 107.08
+      Duration: 2
+    - PlayTime: 107.58
+      Duration: 2
+    - PlayTime: 108.46
+      Duration: 2
+    - PlayTime: 108.96
+      Duration: 2
+    - PlayTime: 109.89
+      Duration: 2
+    - PlayTime: 110.35
+      Duration: 2
+    - PlayTime: 111.22
+      Duration: 2
+    - PlayTime: 111.72
+      Duration: 2
+    - PlayTime: 112.66
+      Duration: 2
+    - PlayTime: 113.16
+      Duration: 2
+    - PlayTime: 114.03
+      Duration: 2
+    - PlayTime: 114.6
+      Duration: 2
+    - PlayTime: 115.35
+      Duration: 2
+    - PlayTime: 115.85
+      Duration: 2
+    - PlayTime: 116.740005
+      Duration: 2
+    - PlayTime: 117.3
+      Duration: 2
+    - PlayTime: 118.11
+      Duration: 2
+    - PlayTime: 118.61
+      Duration: 2
+    - PlayTime: 119.490005
+      Duration: 2
+    - PlayTime: 119.99
+      Duration: 2
+    - PlayTime: 120.86
+      Duration: 2
+    - PlayTime: 121.36
+      Duration: 2
+    - PlayTime: 122.3
+      Duration: 2
+    - PlayTime: 122.74
+      Duration: 2
+    - PlayTime: 123.67
+      Duration: 2
+    - PlayTime: 124.17
+      Duration: 2
+    - PlayTime: 125.05
+      Duration: 2
+  - Instrument: 0
+    PlayTime: 123.240005
+    Duration: 14.769986
+    Skip: 0
+    Notes:
+    - PlayTime: 128.24
+      Duration: 2
+    - PlayTime: 129.11
+      Duration: 2
+    - PlayTime: 129.61
+      Duration: 2
+    - PlayTime: 130.55
+      Duration: 2
+    - PlayTime: 131
+      Duration: 2
+    - PlayTime: 131.94
+      Duration: 2
+    - PlayTime: 132.44
+      Duration: 2
+    - PlayTime: 133.32
+      Duration: 2
+    - PlayTime: 133.82
+      Duration: 2
+    - PlayTime: 134.69
+      Duration: 2
+    - PlayTime: 135.19
+      Duration: 2
+    - PlayTime: 136.08
+      Duration: 2
+    - PlayTime: 136.58
+      Duration: 2
+    - PlayTime: 137.45999
+      Duration: 2
+    - PlayTime: 137.95999
+      Duration: 2
+  TextFile: {fileID: 4900000, guid: 4d547e0b88ec37f4d915738544061908, type: 3}
+  ReadOffset: -0.25
+  SpeedMultiplier: 1
+  Type: 0

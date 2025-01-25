@@ -28,6 +28,16 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
     private void Start()
     {
         intervalsPerInstrument = Song.SortedIntervals(Songs);
+        new Utils.Timer(SongStartTime, StartSong);
+    }
+
+    private void StartSong()
+    {
+        foreach (Instrument ins in instruments.Values)
+        {
+            ins.AudioSource.Play();
+        }
+        SongStartTime = Time.time;
     }
 
     public void RegisterInstrument(InstrumentType Type, Instrument Instrument)

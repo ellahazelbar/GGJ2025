@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Extensions;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -19,6 +20,8 @@ namespace Player
 		public InputSystemActions Input { get; private set; }
 		private int _activeCharacterIndex;
 		public PlayerCharacter ActiveCharacter => _characters[_activeCharacterIndex];
+
+		public event UnityAction<PlayerCharacter> ActiveCharacterChanged;
 
 		public IReadOnlyList<PlayerCharacter> Characters => _characters;
 
@@ -55,6 +58,7 @@ namespace Player
 		{
 			_activeCharacterIndex = (_activeCharacterIndex+1) % _characters.Count;
 			UpdateCharacterEnabledStatus();
+			ActiveCharacterChanged?.Invoke(ActiveCharacter);
 		}
 
 		private void UpdateCharacterEnabledStatus()
