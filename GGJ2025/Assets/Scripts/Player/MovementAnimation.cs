@@ -12,6 +12,8 @@ namespace Player
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private PlayerInstrumentActivator _instrument;
 
+		public string IdleAnimation => _idleAnimation;
+
 		private Spine.AnimationState _state;
 
 		private void Start()
@@ -31,7 +33,15 @@ namespace Player
 		{
 			if (_animator.AnimationName == animation)
 				return;
+			ForcePlayAnimation(trackIndex, animation, looping);
+		}
+
+
+		private void ForcePlayAnimation(int trackIndex, string animation, bool looping)
+		{
 			_state.SetAnimation(trackIndex, animation, looping);
 		}
+
+		public void PlayIdleAnimation() => ForcePlayAnimation(0, _idleAnimation, false);
 	}
 }
