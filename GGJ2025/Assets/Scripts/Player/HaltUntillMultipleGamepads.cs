@@ -12,13 +12,18 @@ namespace Player
 		public List<Behaviour> SinglePlayer;
 		public List<Behaviour> LocalMultiplayer;
 
-        private void Update()
-        {
-			foreach (Behaviour b in SinglePlayer)
-				b.enabled = Gamepad.all.Count == 1;
-			foreach (Behaviour b in LocalMultiplayer)
-				b.enabled = Gamepad.all.Count == 2;
-
+		private void OnEnable()
+		{
+			if (Gamepad.all.Count == 1)
+			{
+				foreach (Behaviour b in SinglePlayer)
+					b.enabled = true;
+			}
+			else
+			{
+				foreach (Behaviour b in LocalMultiplayer)
+					b.enabled = true;
+			}
 		}
 	}
 }
