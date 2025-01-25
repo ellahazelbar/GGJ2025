@@ -1,14 +1,14 @@
-using System;
 using UnityEngine;
 using TNRD.Autohook;
-using Instruments;
 using DG.Tweening;
-using MoreMountains.Tools;
+using Instruments;
 
 namespace Player
 {
 	public class PlayAnimationOnInteract : MonoBehaviour
 	{
+		[SerializeField] private InstrumentAnimationDefinition _animationDefinition;
+		[SerializeField] private InstrumentAnimator _instrumentAnimator;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private PlayerInstrumentActivator _instrumentActivator;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
 		[SerializeField, AutoHook(AutoHookSearchArea.Children)] private Flip _flip;
@@ -20,7 +20,20 @@ namespace Player
 
 		private void OnInstrumentActivated(Instrument instrument)
 		{
-			_rb.DOMove(instrument.InteractionSpot.position, _animationDuration).SetEase(Ease.OutSine).OnComplete(() => _flip.TryAnimateFlip(instrument.transform.position.x - transform.position.x));
+			var sequence = DOTween.Sequence();
+			sequence.Append(_rb.DOMove(instrument.InteractionSpot.position, _animationDuration).SetEase(Ease.OutSine));
+			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - transform.position.x);
+			if (flipAnimation != null)
+				sequence.Append(flipAnimation);
+			sequence.OnComplete(() => ShowStartAnimation(instrument));
+		}
+
+		private void ShowStartAnimation(Instrument instrument)
+		{
+			var definition = _animationDefinition[(int)instrument.Type];
+			_instrumentAnimator.StartAnimation = definition.SetupAnimation;
+			_instrumentAnimator.PlayAnimations = definition;
+			_instrumentAnimator.enabled = true;
 		}
 	}
 }
