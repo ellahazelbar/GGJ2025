@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      A Glass With Hands_0: -8530141425239333173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
