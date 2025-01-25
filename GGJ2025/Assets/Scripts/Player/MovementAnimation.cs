@@ -4,7 +4,7 @@ using Spine.Unity;
 
 namespace Player
 {
-	public class AnimatorMediator : MonoBehaviour
+	public class MovementAnimation : MonoBehaviour
 	{
 		[SerializeField, SpineAnimation] private string _runAnimation;
 		[SerializeField, SpineAnimation] private string _idleAnimation;

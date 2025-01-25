@@ -88,6 +88,7 @@ MonoBehaviour:
   AudioSource: {fileID: 9160893050682932469}
   Minigame: {fileID: 6031514049768161415}
   Type: 0
+  <InteractionSpot>k__BackingField: {fileID: 1508810651406151070}
   FadeCurve:
     serializedVersion: 2
     m_Curve:
