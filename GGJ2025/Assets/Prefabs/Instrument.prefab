@@ -799,4 +799,4 @@ MonoBehaviour:
   Type: 0
   ToasterImage: {fileID: 6769117569105217782}
   ToasterTime: 4
-  AccuracyRange: 0.1
+  AccuracyRange: 0.15

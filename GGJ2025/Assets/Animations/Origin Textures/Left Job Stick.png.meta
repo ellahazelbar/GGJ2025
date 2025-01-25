@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Left Job Stick_0: 5239285432550943573
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

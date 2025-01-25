@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Left Alice Stick_0: -1733134784772343693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
