@@ -67,8 +67,9 @@ namespace Instruments
 
         public TextAsset TextFile;
 
-        public float ReadOffset;
-        public float SpeedMultiplier;
+        public float ReadOffset = -0.25f;
+        public float SpeedMultiplier = 1f;
+        public InstrumentType Type;
 
         [ContextMenu("ReadTextAsset")]
         public void ReadTextFile()
@@ -76,35 +77,40 @@ namespace Instruments
             Intervals.Clear();
             string text = TextFile.text;
             string[] lines = text.Split('\n');
-            Interval current = null;
+            Interval current = new()
+            {
+                Instrument = Type,
+                Notes = new()
+            };
             foreach (string line in lines)
             {
-                if (string.IsNullOrEmpty(line))
-                    continue;
-                if (line[0] == '[')
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    if (null != current && 0 < current.Notes.Count)
+                    {
+                        current.PlayTime = current.Notes[0].PlayTime - 5;
+                        current.Duration = current.Notes[^1].PlayTime - current.PlayTime + 0.05f;
+                        Intervals.Add(current);
+                    }
+                    current = new()
+                    {
+                        Instrument = Type,
+                        Notes = new()
+                    };
+                }
+                else if (line[0] == '[')
                 {
                     string min = line.Substring(1, 2), time = line.Substring(4, 5);
                     float playTime = ((60f * int.Parse(min)) + float.Parse(time) + ReadOffset) * SpeedMultiplier;
                     current.Notes.Add(new Interval.Note { Duration = 2, PlayTime = playTime });
                 }
-                else 
-                {
-                    string[] nums = line.Split(' ');
-                    if (3 == nums.Length && int.TryParse(nums[0], out int instrument) && float.TryParse(nums[1], out float playTime) && float.TryParse(nums[2], out float duration))
-                    {
-                        if (null != current)
-                            Intervals.Add(current);
-                        current = new Interval
-                        {
-                            Duration = duration,
-                            PlayTime = playTime,
-                            Instrument = (InstrumentType)instrument,
-                            Notes = new()
-                        };
-                    }
-                }
             }
-            Intervals.Add(current);
+            if (null != current && 0 < current.Notes.Count)
+            {
+                current.PlayTime = current.Notes[0].PlayTime - 5;
+                current.Duration = current.Notes[^1].PlayTime - current.PlayTime + 0.05f;
+                Intervals.Add(current);
+            }
         }
     }
 }
