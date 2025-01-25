@@ -1,6 +1,4 @@
 using System;
-using MoreMountains.Feedbacks;
-using Player;
 using UnityEngine;
 
 public class LevelShakeManager : MonoBehaviour

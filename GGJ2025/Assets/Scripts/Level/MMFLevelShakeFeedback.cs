@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MMFLevelShakeFeedback : MMF_Player
 {
-    protected override void Awake()
+    protected override void Start()
     {
         base.Awake();
         LevelShakeManager.WorldShake += Play;
@@ -12,7 +12,8 @@ public class MMFLevelShakeFeedback : MMF_Player
 
     private void Play()
     {
-        Debug.Log("Shake");
         Extensions.MMF.StopAndPlayFeedbacks(this);
     }
+    
+   
 }
