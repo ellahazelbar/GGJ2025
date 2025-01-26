@@ -14,8 +14,4 @@ public class LevelShakeManager : MonoBehaviour
     {
         WorldShake?.Invoke();
     }
-    
-    
-
-    
 }

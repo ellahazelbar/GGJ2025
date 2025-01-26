@@ -10,7 +10,7 @@ namespace Player
 		[SerializeField, Tooltip("Behaviours to enable/disable when the player is enabled disbaled.")] private List<Behaviour> _characterBehaviours;
 		[field: SerializeField, AutoHook] public PlayerInstrumentPointer InstrumentPointer { get; private set; }
 		[field: SerializeField, AutoHook] public PlayerInstrumentActivator InstrumentActivator { get; private set; }
-		[field: SerializeField, AutoHook(AutoHookSearchArea.Parent)] public PlayerManager Owner { get; private set; }
+		[field: SerializeField, AutoHook(AutoHookSearchArea.Parent)] public PlayerManager Owner { get; set; }
 
 		public InputSystemActions Input => Owner.Input;
 

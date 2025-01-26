@@ -8,6 +8,7 @@ namespace Instruments
 {
     public class InstrumentMinigame : MonoBehaviour
     {
+        public const int NOTES_REQUIRED_FOR_AUTOPLAY = 8;
         public Timeline Timeline;
 
         public UnityEngine.UI.Image ToasterImage;
@@ -33,7 +34,7 @@ namespace Instruments
 
         public void NotifyIncomingInterval(Song.Interval Interval)
         {
-            Timeline.Unfade();
+            //Timeline.Unfade();
             nextPlayTime = SongManager.Instance.SongTimeToTime(Interval.PlayTime);
             NextShutoffTime = nextPlayTime + Interval.Duration;
             waitingForInterval = true;
@@ -66,6 +67,13 @@ namespace Instruments
         public void Activate()
         {
             Combo = 0;
+            Timeline.OnInstrumentEquipped();
+        }
+        
+        public void Deactivate()
+        {
+            Combo = 0;
+            Timeline.OnInstrumentUnEquipped();
         }
 
         public void NotePlayed()
@@ -88,15 +96,17 @@ namespace Instruments
             }
             if (null != hit)
             {
+                if(GrandmaScore.Instance != null)
+                    GrandmaScore.Instance.OnAddScore(1);
                 Timeline.NoteHit(hit);
                 ++Combo;
-                if (8 == Combo)
+                if (NOTES_REQUIRED_FOR_AUTOPLAY == Combo)
                 {
-                    Timeline.Fade();
+                    Timeline.OnAutomaticPlayStarted();
                     LevelShakeManager.Instance.PlayWorldShake();
                     NextFadeTime = Mathf.Infinity;
                 }
-                else if (Combo < 8)
+                else if (Combo < NOTES_REQUIRED_FOR_AUTOPLAY)
                 { 
                     if (null == nextNote) 
                     {
@@ -108,11 +118,11 @@ namespace Instruments
                     }
                 }
 				NotePlayedEvent?.Invoke();
-
 			}
             else
             {
-                //play miss sound byte with random pitch
+                if(GrandmaScore.Instance != null)
+                    GrandmaScore.Instance.OnAddScore(-1);
             }
         }
     }
