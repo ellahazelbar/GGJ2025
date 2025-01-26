@@ -10,6 +10,7 @@ namespace Player
 {
 	public class InstrumentAnimator : MonoBehaviour
 	{
+		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private PlayerCharacter _character;
 		[SerializeField, AutoHook] private SkeletonAnimation _animator;
 		private int _animationIndex;
 
@@ -20,14 +21,14 @@ namespace Player
 		private void OnEnable()
 		{
 			_animationIndex = 0;
-			_animator.GetComponent<MovementAnimation>().PlayIdleAnimation();
 			_animator.state.SetAnimation(1, StartAnimation, false);
-			_animator.GetComponentInParent<PlayerCharacter>().Input.House.Interact.started += OnNotePlayed;
+			_character.Input.House.Interact.started += OnNotePlayed;
 		}
 
 		private void OnDisable()
 		{
-			_animator.GetComponentInParent<PlayerCharacter>().Input.House.Interact.started -= OnNotePlayed;
+			_character.Input.House.Interact.started -= OnNotePlayed;
+			_animator.state.SetEmptyAnimation(1, 0.3f);
 		}
 
 		private void OnNotePlayed(InputAction.CallbackContext context)

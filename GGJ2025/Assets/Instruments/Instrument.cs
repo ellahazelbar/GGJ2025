@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TNRD.Autohook;
 
@@ -5,6 +6,7 @@ namespace Instruments
 {
     public class Instrument : MonoBehaviour
     {
+        [SerializeField] private List<GameObject> _visuals;
         [AutoHook] public AudioSource AudioSource;
         public InstrumentMinigame Minigame;
         public InstrumentType Type;
@@ -33,7 +35,10 @@ namespace Instruments
             }
         }
 
-        private void Update()
+        public void SetVisible(bool visible) => _visuals.ForEach(go => go.SetActive(visible));
+
+
+		private void Update()
         {
             if (attached)
             {

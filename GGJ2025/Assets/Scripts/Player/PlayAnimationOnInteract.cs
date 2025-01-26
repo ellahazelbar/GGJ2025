@@ -9,6 +9,7 @@ namespace Player
 	{
 		[SerializeField] private InstrumentAnimationDefinition _animationDefinition;
 		[SerializeField] private InstrumentAnimator _instrumentAnimator;
+		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private CharacterStateController _stateController;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private PlayerInstrumentActivator _instrumentActivator;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
 		[SerializeField, AutoHook(AutoHookSearchArea.Children)] private Flip _flip;
@@ -30,12 +31,12 @@ namespace Player
 
 		private void ShowStartAnimation(Instrument instrument)
 		{
-			instrument.GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+			instrument.SetVisible(false);
 			_instrumentAnimator.InstrumentMinigame = instrument.Minigame;
 			var definition = _animationDefinition[(int)instrument.Type];
 			_instrumentAnimator.StartAnimation = definition.SetupAnimation;
 			_instrumentAnimator.PlayAnimations = definition;
-			_instrumentAnimator.enabled = true;
+			_stateController.State = CharacterStateController.CharState.Playing;
 		}
 	}
 }
