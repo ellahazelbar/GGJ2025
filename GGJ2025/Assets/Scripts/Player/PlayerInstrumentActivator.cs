@@ -15,6 +15,7 @@ namespace Player
 	{
 		[SerializeField, AutoHook] private PlayerCharacter _character;
 		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
+		private Instrument _currentCache;
 
 		public event UnityAction<Instrument> InstrumentActivated;
 		public event UnityAction InstrumentDisengaged;
@@ -31,16 +32,19 @@ namespace Player
 
 		private void OnInteract(InputAction.CallbackContext context)
 		{
-			Instrument current = _instrumentPointer.Current;
-			if (null == current)
+			_currentCache = _instrumentPointer.Current;
+			if (null == _currentCache)
 				return;
-			InstrumentActivated?.Invoke(current);
-			current.Activate(this);
+			InstrumentActivated?.Invoke(_currentCache);
+			_currentCache.Activate(this);
 		}
 
 		public void Disengage()
 		{
-			_instrumentPointer.Current.SetVisible(true);
+			if (_instrumentPointer.Current != null)
+				_instrumentPointer.Current.SetVisible(true);
+			else
+				_currentCache.SetVisible(true);
 			_character.StateController.State = CharacterStateController.CharState.FreeMovement;
 			InstrumentDisengaged?.Invoke();
 		}
