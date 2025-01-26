@@ -21,6 +21,11 @@ namespace Player
 			_state = _animator.state;
 		}
 
+		private void OnDisable()
+		{
+			PlayIdleAnimation();
+		}
+
 		private void FixedUpdate()
 		{
 			if (_rb.linearVelocity.sqrMagnitude > 0.1f)
