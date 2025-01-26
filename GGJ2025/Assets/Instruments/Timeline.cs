@@ -30,6 +30,7 @@ namespace Instruments
         {
             notesAlive = new List<TimelineNote>();
             isVisible = false;
+            InputHint.color = Color.clear;
         }
 
         private void Start()
@@ -44,13 +45,11 @@ namespace Instruments
         public void OnInstrumentEquipped()
         {
             isInstrumentManned = true;
-            isVisible = true;
             UnFadeVisuals();
         }
         
         public void OnInstrumentUnEquipped()
         {
-            isVisible = false;
             isInstrumentManned = false;
             if (Passive.isPlaying)
             {
@@ -103,6 +102,7 @@ namespace Instruments
 
         private void FadeVisuals()
         {
+            isVisible = false;
             foreach (TimelineNote n in notesAlive)
             {
                 n.FadeNote();
@@ -117,16 +117,20 @@ namespace Instruments
             
             IEnumerator FadeInputHint()
             {
-                while (InputHint.color.a > 0)
-                {
-                    InputHint.color = Color.Lerp(Color.clear, Color.white, Mathf.PingPong(Time.time, 1));
-                    yield return null;
-                }
+                yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                    (float StartTime, Color StartColor, Image Image) =>
+                    {
+                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
+                    },
+                    Time.time, InputHint.color, InputHint
+                );
+                InputHint.color = Color.clear;
             }
         }
         
         public void UnFadeVisuals()
         {
+            isVisible = true;
             foreach (TimelineNote n in notesAlive)
             {
                 n.UnFadeNote();
@@ -141,20 +145,14 @@ namespace Instruments
             
             IEnumerator UnFadeInputHint()
             {
-                while (InputHint.color.a < 1)
-                {
-                    Color ogColor = InputHint.color;
-                    InputHint.color = Color.Lerp(ogColor, Color.clear, Mathf.PingPong(Time.time, 1));
-                    yield return null;
-                }
-                /*yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                yield return new Utils.DoForSeconds<float, Color, Image>(1,
                     (float StartTime, Color StartColor, Image Image) =>
                     {
-                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
+                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 0 + StartTime + Time.time);
                     },
                     Time.time, InputHint.color, InputHint
-                );*/
-                //InputHint.color = Color.clear;
+                );
+                InputHint.color = Color.white;
             }
         }
     }
