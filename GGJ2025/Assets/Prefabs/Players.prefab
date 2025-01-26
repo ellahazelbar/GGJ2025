@@ -455,6 +455,10 @@ PrefabInstance:
       value: P2C1
       objectReference: {fileID: 0}
     - target: {fileID: 7731706800544410709, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731706800544410709, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: <Owner>k__BackingField
       value: 
       objectReference: {fileID: 2125706348943128917}
@@ -474,7 +478,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3666279566786770607}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e192712e38028c47ad5922020c8e85a, type: 3}
   m_Name: 
@@ -702,6 +706,10 @@ PrefabInstance:
       value: P1C1
       objectReference: {fileID: 0}
     - target: {fileID: 7731706800544410709, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731706800544410709, guid: 493357f60afd91648ad8e0472ee07946, type: 3}
       propertyPath: <Owner>k__BackingField
       value: 
       objectReference: {fileID: 5374197600047725514}
@@ -716,7 +724,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7346997446956610608}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e192712e38028c47ad5922020c8e85a, type: 3}
   m_Name: 
