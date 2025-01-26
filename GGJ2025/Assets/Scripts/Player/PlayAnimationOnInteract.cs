@@ -34,7 +34,7 @@ namespace Player
 			_collider.excludeLayers = _layersToIgnoreWhenPlaying;
 			var sequence = DOTween.Sequence();
 			sequence.Append(_rb.DOMove(instrument.InteractionPosition, _animationDuration).SetEase(Ease.OutSine));
-			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - instrument.InteractionPosition.x);
+			var flipAnimation = _flip.TryAnimateFlip(1f); // Instrument always faces right
 			if (flipAnimation != null)
 				sequence.Append(flipAnimation);
 			sequence.OnComplete(() => ShowStartAnimation(instrument));
