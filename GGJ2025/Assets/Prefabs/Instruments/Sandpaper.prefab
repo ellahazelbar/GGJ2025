@@ -32,6 +32,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
+      propertyPath: NoteColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
+      propertyPath: NoteColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
+      propertyPath: NoteColor.r
+      value: 0.6041722
+      objectReference: {fileID: 0}
     - target: {fileID: 2260354240996047508, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
       propertyPath: m_Size.x
       value: 6.26
