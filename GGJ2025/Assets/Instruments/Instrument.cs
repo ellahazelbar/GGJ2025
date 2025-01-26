@@ -54,6 +54,7 @@ namespace Instruments
         {
             AudioSource.volume = 0;
             attached = null;
+            Minigame.Deactivate();
         }
     }
 }
