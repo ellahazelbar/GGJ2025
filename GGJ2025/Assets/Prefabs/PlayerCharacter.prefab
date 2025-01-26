@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4565790854096473527}
   - component: {fileID: 7981165525176852128}
   - component: {fileID: 2931706004880339751}
+  - component: {fileID: 6442918571428509336}
   - component: {fileID: 6192556875694432421}
   m_Layer: 7
   m_Name: PlayerCharacter
@@ -149,13 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e192712e38028c47ad5922020c8e85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterBehaviours:
-  - {fileID: 8224574034346316446}
-  - {fileID: 4565790854096473527}
-  - {fileID: 7981165525176852128}
-  - {fileID: 2931706004880339751}
-  - {fileID: 5547789416277990143}
-  - {fileID: 8388598703759340798}
+  <StateController>k__BackingField: {fileID: 6192556875694432421}
   <InstrumentPointer>k__BackingField: {fileID: 7981165525176852128}
   <InstrumentActivator>k__BackingField: {fileID: 2931706004880339751}
   <Owner>k__BackingField: {fileID: 0}
@@ -251,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1373108f75fc340a14cd8c7bb0d7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 7731706800544410709}
+  _character: {fileID: 7731706800544410709}
   _instrumentPointer: {fileID: 7981165525176852128}
---- !u!114 &6192556875694432421
+--- !u!114 &6442918571428509336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,14 +257,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 4493588888938352007}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11b9be6424a440448738f9ca1bd8346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 7731706800544410709}
+  _activator: {fileID: 2931706004880339751}
+--- !u!114 &6192556875694432421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493588888938352007}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38e2017bf36c20e4f99d3c6dde3d4deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _instrumentActivator: {fileID: 2931706004880339751}
-  _toDisable:
-  - {fileID: 8224574034346316446}
-  - {fileID: 4565790854096473527}
-  - {fileID: 6713776578516797711}
+  _state: 1
+  _behaviours:
+  - behaviour: {fileID: 8224574034346316446}
+    condition: 1
+  - behaviour: {fileID: 4565790854096473527}
+    condition: 1
+  - behaviour: {fileID: 7981165525176852128}
+    condition: 1
+  - behaviour: {fileID: 2931706004880339751}
+    condition: 1
+  - behaviour: {fileID: 612047117532293946}
+    condition: 1
+  - behaviour: {fileID: 6713776578516797711}
+    condition: 1
+  - behaviour: {fileID: 2305704992368933425}
+    condition: 1
+  - behaviour: {fileID: 1404420777607359195}
+    condition: 2
+  - behaviour: {fileID: 8388598703759340798}
+    condition: 1
+  - behaviour: {fileID: 5547789416277990143}
+    condition: 1
+  - behaviour: {fileID: 6442918571428509336}
+    condition: 2
 --- !u!1 &7970856356340012338
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,12 +344,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3b46b8251fc0d408d9d5b0852b64c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 2253121358635755954}
   _animationDefinition: {fileID: 11400000, guid: 82172dc3d4dcc5f4ca56faf99a32fc5c, type: 2}
   _instrumentAnimator: {fileID: 1404420777607359195}
+  _stateController: {fileID: 6192556875694432421}
   _instrumentActivator: {fileID: 2931706004880339751}
   _rb: {fileID: 8555677714515251285}
   _flip: {fileID: 2305704992368933425}
   _animationDuration: 0.4
+  _layersToIgnoreWhenPlaying:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1001 &5845446327262214806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -568,22 +601,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5673302581734293120, guid: e00386db05d5aa446a31d767885355ea, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5673302581734293120, guid: e00386db05d5aa446a31d767885355ea, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 776b44a1a76d1334392f0c3e47517130, type: 2}
-    - target: {fileID: 5673302581734293120, guid: e00386db05d5aa446a31d767885355ea, type: 3}
-      propertyPath: 'm_Materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 6e9b6edfad5b5644b90da0c36bcd07a1, type: 2}
-    - target: {fileID: 5673302581734293120, guid: e00386db05d5aa446a31d767885355ea, type: 3}
-      propertyPath: 'm_Materials.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5f70ee6405dbbc0438cedbdd21f5f242, type: 2}
     - target: {fileID: 8495588440103318998, guid: e00386db05d5aa446a31d767885355ea, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -637,7 +654,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8971494799257141278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b1d8978b67f4324ab2535229fc92ca9, type: 3}
   m_Name: 
@@ -654,7 +671,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8971494799257141278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f8fb97b10a01e54395df49ebb34ec60, type: 3}
   m_Name: 
@@ -673,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0af54d77fa47574092f3b7b340c53ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _character: {fileID: 7731706800544410709}
   _animator: {fileID: 550129757575087296}
 --- !u!114 &3524951603815305652
 MonoBehaviour:

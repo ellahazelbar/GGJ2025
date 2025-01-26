@@ -84,6 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3429c8d43fa09b846a111d8b7af29c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _visuals:
+  - {fileID: 6337097946111133787}
+  - {fileID: 7108013653337501334}
   AudioSource: {fileID: 9160893050682932469}
   Minigame: {fileID: 6031514049768161415}
   Type: 0

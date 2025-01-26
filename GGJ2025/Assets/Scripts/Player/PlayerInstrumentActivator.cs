@@ -13,23 +13,20 @@ namespace Player
 	[RequireComponent(typeof(PlayerInstrumentPointer))]
 	public class PlayerInstrumentActivator : MonoBehaviour
 	{
-		[SerializeField, AutoHook] private PlayerCharacter _player;
+		[SerializeField, AutoHook] private PlayerCharacter _character;
 		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
 
 		public event UnityAction<Instrument> InstrumentActivated;
-
-		private bool attachedToMinigame;
+		public event UnityAction InstrumentDisengaged;
 
 		private void OnEnable()
 		{
-			_player.Input.House.Interact.started += OnInteract;
-			_player.Input.House.Dash.started += OnDisengage;
+			_character.Input.House.Interact.started += OnInteract;
 		}
 
 		private void OnDisable()
 		{
-			_player.Input.House.Interact.started -= OnInteract;
-			_player.Input.House.Dash.started -= OnDisengage;
+			_character.Input.House.Interact.started -= OnInteract;
 		}
 
 		private void OnInteract(InputAction.CallbackContext context)
@@ -38,24 +35,14 @@ namespace Player
 			if (null == current)
 				return;
 			InstrumentActivated?.Invoke(current);
-			attachedToMinigame = true;
 			current.Activate(this);
 		}
 
-		private void OnDisengage(InputAction.CallbackContext context)
-        {
-			Disengage();
-			_instrumentPointer.Current.GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
-		}
-
 		public void Disengage()
-        {
-			Instrument current = _instrumentPointer.Current;
-			if (attachedToMinigame && null != current)
-			{
-				current.Deactivate();
-				attachedToMinigame = false;
-			}
+		{
+			_instrumentPointer.Current.SetVisible(true);
+			_character.StateController.State = CharacterStateController.CharState.FreeMovement;
+			InstrumentDisengaged?.Invoke();
 		}
 	}
 }
