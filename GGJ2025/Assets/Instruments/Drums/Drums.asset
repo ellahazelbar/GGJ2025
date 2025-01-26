@@ -16,7 +16,7 @@ MonoBehaviour:
   - Instrument: 1
     PlayTime: -3.92
     Duration: 5.05
-    Skip: 0
+    Skip: 1
     Notes:
     - PlayTime: 1.08
       Duration: 2

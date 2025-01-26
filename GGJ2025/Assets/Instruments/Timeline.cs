@@ -13,6 +13,8 @@ namespace Instruments
         public Image InputHint;
         public Sprite Base, Input;
         public Color NoteColor = Color.white;
+        public Color ActiveInputHintColor;
+        public Color AutomaticPlayInputHintColor;
         public bool isVisible { get; private set; }
 
         public ParticleSystem OnHit, Passive;
@@ -24,13 +26,12 @@ namespace Instruments
 
         private bool isInstrumentManned;
         
-        private IEnumerator fadeCoroutine;
+        private IEnumerator inputHintFadeCoroutine;
 
         private void Awake()
         {
             notesAlive = new List<TimelineNote>();
             isVisible = false;
-            InputHint.color = Color.clear;
         }
 
         private void Start()
@@ -40,6 +41,8 @@ namespace Instruments
             //OnHit.main = main;
             main = Passive.main;
             main.startColor = NoteColor;
+            
+            DisplayInputHint(false);
         }
 
         public void OnInstrumentEquipped()
@@ -57,6 +60,15 @@ namespace Instruments
             }
             else
                 FadeVisuals();
+        }
+
+        public void DisplayInputHint(bool shouldDisplay)
+        {
+            if (inputHintFadeCoroutine != null)
+            {
+                StopCoroutine(inputHintFadeCoroutine);
+            }
+            InputHint.color = shouldDisplay ? ActiveInputHintColor : Color.clear;
         }
 
         public void CreateNote(float PlayTime, float Duration)
@@ -97,6 +109,7 @@ namespace Instruments
         public void OnAutomaticPlayStarted()
         {
             FadeVisuals();
+            InputHint.color = AutomaticPlayInputHintColor;
             Passive.Play(true);
         }
 
@@ -108,24 +121,29 @@ namespace Instruments
                 n.FadeNote();
             }
 
-            if (fadeCoroutine != null)
-            {
-                StopCoroutine(fadeCoroutine);
-            }
-            fadeCoroutine = FadeInputHint();
-            StartCoroutine(fadeCoroutine);
+
             
-            IEnumerator FadeInputHint()
+            /*if (notesAlive.Count > 0)
             {
-                yield return new Utils.DoForSeconds<float, Color, Image>(1,
-                    (float StartTime, Color StartColor, Image Image) =>
-                    {
-                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
-                    },
-                    Time.time, InputHint.color, InputHint
-                );
-                InputHint.color = Color.clear;
-            }
+                if (inputHintFadeCoroutine != null)
+                {
+                    StopCoroutine(inputHintFadeCoroutine);
+                }
+                inputHintFadeCoroutine = FadeInputHint();
+                StartCoroutine(inputHintFadeCoroutine);
+
+                IEnumerator FadeInputHint()
+                {
+                    yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                        (float StartTime, Color StartColor, Image Image) =>
+                        {
+                            Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
+                        },
+                        Time.time, InputHint.color, InputHint
+                    );
+                    InputHint.color = Color.clear;
+                }
+            }*/
         }
         
         public void UnFadeVisuals()
@@ -136,12 +154,12 @@ namespace Instruments
                 n.UnFadeNote();
             }
 
-            if (fadeCoroutine != null)
+            /*if (inputHintFadeCoroutine != null)
             {
-                StopCoroutine(fadeCoroutine);
+                StopCoroutine(inputHintFadeCoroutine);
             }
-            fadeCoroutine = UnFadeInputHint();
-            StartCoroutine(fadeCoroutine);
+            inputHintFadeCoroutine = UnFadeInputHint();
+            StartCoroutine(inputHintFadeCoroutine);
             
             IEnumerator UnFadeInputHint()
             {
@@ -153,7 +171,7 @@ namespace Instruments
                     Time.time, InputHint.color, InputHint
                 );
                 InputHint.color = Color.white;
-            }
+            }*/
         }
     }
 }

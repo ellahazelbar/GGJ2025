@@ -54,6 +54,7 @@ namespace Instruments
                 if (toWait < 0)
                 {
                     waitingForInterval = false;
+                    Timeline.DisplayInputHint(true);
                 }
                 else
                 {
@@ -78,7 +79,8 @@ namespace Instruments
 
         public void NotePlayed()
         {
-            if (null == currentPlayedInterval)
+            if (null == currentPlayedInterval || 
+                Combo >= NOTES_REQUIRED_FOR_AUTOPLAY) //band-aid, remove when making auto-play actually automatically hit all the notes
                 return;
             Timeline.NotePlayed();
             Song.Interval.Note hit = null;

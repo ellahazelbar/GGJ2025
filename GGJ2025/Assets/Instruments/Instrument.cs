@@ -43,9 +43,14 @@ namespace Instruments
                 }
                 else AudioSource.volume = Mathf.MoveTowards(AudioSource.volume, 1, Time.deltaTime / Minigame.AccuracyRange);
                 if (Minigame.NextShutoffTime < Time.time)
-                { 
+                {
                     if (null != attached)
+                    {
                         attached.Disengage();
+                        
+                        //band aid
+                        Minigame.Timeline.DisplayInputHint(false);
+                    }
                 }
             }
         }
