@@ -15,6 +15,7 @@ namespace Player
 	public class PlayerManager : MonoBehaviour
 	{
 		[SerializeField] private List<PlayerCharacter> _characters;
+		[SerializeField] private List<UnityEngine.GameObject> _toActivate;
 		[field: SerializeField] public Color Color { get; private set; } = Color.white;
 		[SerializeField] private int _playerIndex;
 		public InputSystemActions Input { get; private set; }
@@ -34,14 +35,15 @@ namespace Player
 		{
 			Input.Enable();
 			Input.House.ChangeActiveCharacter.started += OnActiveCharacterChanged;
-			foreach (var character in Characters)
-				character.Owner = this;
+			_characters.ForEach(c => c.Owner = this);
+			_toActivate.ForEach(go => go.SetActive(true));
 		}
 
 		private void OnDisable()
 		{
 			Input.House.ChangeActiveCharacter.started -= OnActiveCharacterChanged;
 			Input.Disable();
+			_toActivate.ForEach(go => go.SetActive(false));
 		}
 
 		private void OnDestroy()
