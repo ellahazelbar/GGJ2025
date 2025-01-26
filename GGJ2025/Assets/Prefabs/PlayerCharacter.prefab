@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3b46b8251fc0d408d9d5b0852b64c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 2253121358635755954}
   _animationDefinition: {fileID: 11400000, guid: 82172dc3d4dcc5f4ca56faf99a32fc5c, type: 2}
   _instrumentAnimator: {fileID: 1404420777607359195}
   _stateController: {fileID: 6192556875694432421}
@@ -351,6 +352,9 @@ MonoBehaviour:
   _rb: {fileID: 8555677714515251285}
   _flip: {fileID: 2305704992368933425}
   _animationDuration: 0.4
+  _layersToIgnoreWhenPlaying:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1001 &5845446327262214806
 PrefabInstance:
   m_ObjectHideFlags: 0

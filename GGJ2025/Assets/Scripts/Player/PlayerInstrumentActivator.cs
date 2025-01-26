@@ -40,8 +40,7 @@ namespace Player
 
 		public void Disengage()
 		{
-			Instrument current = _instrumentPointer.Current;
-			current.SetVisible(true);
+			_instrumentPointer.Current.SetVisible(true);
 			_character.StateController.State = CharacterStateController.CharState.FreeMovement;
 			InstrumentDisengaged?.Invoke();
 		}

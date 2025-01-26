@@ -14,13 +14,6 @@ namespace Player
 
 		public string IdleAnimation => _idleAnimation;
 
-		private Spine.AnimationState _state;
-
-		private void Start()
-		{
-			_state = _animator.state;
-		}
-
 		private void OnDisable()
 		{
 			PlayIdleAnimation();
@@ -44,7 +37,7 @@ namespace Player
 
 		private void ForcePlayAnimation(int trackIndex, string animation, bool looping)
 		{
-			_state.SetAnimation(trackIndex, animation, looping);
+			_animator.state.SetAnimation(trackIndex, animation, looping);
 		}
 
 		public void PlayIdleAnimation() => ForcePlayAnimation(0, _idleAnimation, false);

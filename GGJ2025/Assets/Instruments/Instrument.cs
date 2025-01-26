@@ -50,7 +50,10 @@ namespace Instruments
                 if (Minigame.NextShutoffTime < Time.time)
                 { 
                     if (null != attached)
-                        attached.Disengage();
+					{
+						attached.Disengage();
+                        attached = null;
+					}
                 }
             }
         }
