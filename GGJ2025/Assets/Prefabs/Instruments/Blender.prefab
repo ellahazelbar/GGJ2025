@@ -34,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
       propertyPath: NoteColor.b
-      value: 0.41176474
+      value: 0.8352942
       objectReference: {fileID: 0}
     - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
       propertyPath: NoteColor.g
-      value: 0.24705884
+      value: 0.54509807
       objectReference: {fileID: 0}
     - target: {fileID: 2177493314257774276, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
       propertyPath: NoteColor.r
-      value: 0.7372549
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2260354240996047508, guid: 101787e20a7e43b4b8cdeb132085ae1d, type: 3}
       propertyPath: m_Size.x

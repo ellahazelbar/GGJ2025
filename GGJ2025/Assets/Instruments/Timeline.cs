@@ -13,6 +13,7 @@ namespace Instruments
         public Image InputHint;
         public Sprite Base, Input;
         public Color NoteColor = Color.white;
+        public Color UnmannedInputHintColor;
         public Color ActiveInputHintColor;
         public Color AutomaticPlayInputHintColor;
         public bool isVisible { get; private set; }
@@ -58,8 +59,7 @@ namespace Instruments
             {
                 Passive.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
-            else
-                FadeVisuals();
+            //else FadeVisuals();
         }
 
         public void DisplayInputHint(bool shouldDisplay)
@@ -68,7 +68,7 @@ namespace Instruments
             {
                 StopCoroutine(inputHintFadeCoroutine);
             }
-            InputHint.color = shouldDisplay ? ActiveInputHintColor : Color.clear;
+            InputHint.color = shouldDisplay ? ActiveInputHintColor : UnmannedInputHintColor;
         }
 
         public void CreateNote(float PlayTime, float Duration)
@@ -120,8 +120,6 @@ namespace Instruments
             {
                 n.FadeNote();
             }
-
-
             
             /*if (notesAlive.Count > 0)
             {

@@ -8,6 +8,7 @@ namespace Instruments
     {
         public Sprite[] AvailableSprites;
         public AnimationCurve AlphaCurve;
+        [SerializeField] private float timeToForget = 0.8f;
 
         private Image im;
         private RectTransform re;
@@ -26,10 +27,11 @@ namespace Instruments
             re = GetComponent<RectTransform>();
             im.sprite = AvailableSprites[Random.Range(0, AvailableSprites.Length)];
             originalColor = Timeline.NoteColor;
-            im.color = Timeline.isVisible ? originalColor : Color.clear;
+            im.color = originalColor;
+            //im.color = Timeline.isVisible ? originalColor : Color.clear;
             this.PlayTime = PlayTime;
             unitsPerSecond = UnitsPerSecond;
-            new Utils.Timer<Timeline, TimelineNote>(PlayTime + 0.8f - Time.time, (Timeline T, TimelineNote N) => { T.Forget(N); }, Timeline, this);
+            new Utils.Timer<Timeline, TimelineNote>(PlayTime + timeToForget - Time.time, (Timeline T, TimelineNote N) => { T.Forget(N); }, Timeline, this);
             Destroy(gameObject, PlayTime + 1 - Time.time);
         }
 
@@ -68,20 +70,20 @@ namespace Instruments
         private IEnumerator Fade()
         {
             isVisible = false;
-            yield return new Utils.DoForSeconds<float, Color, Image>(1,
+            yield return new Utils.DoForSeconds<float, Color, Image>(0.5f,
                 (float StartTime, Color StartColor, Image Image) =>
                 {
                     Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
                 },
                 Time.time, im.color, im
             );
-            im.color = Color.clear;
+            //im.color = Color.clear;
         }
         
         private IEnumerator UnFade()
         {
             isVisible = true;
-            yield return new Utils.DoForSeconds<float, Color, Image>(1,
+            yield return new Utils.DoForSeconds<float, Color, Image>(0.5f,
                 (float StartTime, Color StartColor, Image Image) =>
                 {
                     Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 0 + StartTime + Time.time);

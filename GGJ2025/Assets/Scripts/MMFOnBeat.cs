@@ -2,7 +2,7 @@ using MoreMountains.Feedbacks;
 
 public class MMFOnBeat : MMF_Player
 {
-	private bool shouldBeat = false;
+	private bool shouldBeat = true;
 	protected override void Awake()
 	{
 		base.Awake();

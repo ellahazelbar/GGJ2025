@@ -264,11 +264,12 @@ MonoBehaviour:
   NotePrefab: {fileID: 5732439855915224809, guid: b7064565aafeb7647939138e3b326a5e, type: 3}
   NoteContainer: {fileID: 266270758188017902}
   InputHint: {fileID: 8758778059183264004}
-  Base: {fileID: 1536610985664812233, guid: 730d79ffb0d5056449970322b30a22d4, type: 3}
-  Input: {fileID: 5821445605626184884, guid: f69def03b65f8264fadef351ac79fd03, type: 3}
+  Base: {fileID: -7956427973557797689, guid: 9970db179f9a7d04abb98d11054a7a85, type: 3}
+  Input: {fileID: 3218575419753035041, guid: d2063d828177f004a822429dc488227e, type: 3}
   NoteColor: {r: 0, g: 0, b: 0, a: 1}
-  ActiveInputHintColor: {r: 0.49411765, g: 0.7176471, b: 0, a: 1}
-  AutomaticPlayInputHintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.2509804}
+  UnmannedInputHintColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.39215687}
+  ActiveInputHintColor: {r: 1, g: 0, b: 0, a: 1}
+  AutomaticPlayInputHintColor: {r: 0, g: 0.6509434, b: 0, a: 0.23529412}
   OnHit: {fileID: 5629001675021016446}
   Passive: {fileID: 5343025783493961241}
 --- !u!114 &2378746276244135988
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49411768, g: 0.7176471, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -417,7 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49411768, g: 0.7176471, b: 0, a: 1}
+  m_Color: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 0.39215687}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

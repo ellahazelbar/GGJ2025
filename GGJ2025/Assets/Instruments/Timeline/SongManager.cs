@@ -39,8 +39,12 @@ public class SongManager : Utils.SingletonMonoBehaviour<SongManager>
         {
             ins.AudioSource.Play();
         }
-        BGBass.Play();
-        BGVocals.Play();
+
+        if (BGBass != null)
+            BGBass.Play();
+        if (BGVocals != null)
+            BGVocals.Play();
+        
         SongStartTime = Time.time;
     }
 
