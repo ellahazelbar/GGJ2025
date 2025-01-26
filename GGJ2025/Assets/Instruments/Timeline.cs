@@ -8,10 +8,12 @@ namespace Instruments
     public class Timeline : MonoBehaviour
     {
         public float UnitsPerSecond;
-        public GameObject NodePrefab;
-        public Image Hint;
+        public GameObject NotePrefab;
+        public GameObject NoteContainer;
+        public Image InputHint;
         public Sprite Base, Input;
         public Color NoteColor = Color.white;
+        public bool isVisible { get; private set; }
 
         public ParticleSystem OnHit, Passive;
 
@@ -20,9 +22,15 @@ namespace Instruments
 
         private List<TimelineNote> notesAlive;
 
+        private bool isInstrumentManned;
+        
+        private IEnumerator fadeCoroutine;
+
         private void Awake()
         {
             notesAlive = new List<TimelineNote>();
+            isVisible = false;
+            InputHint.color = Color.clear;
         }
 
         private void Start()
@@ -34,12 +42,29 @@ namespace Instruments
             main.startColor = NoteColor;
         }
 
+        public void OnInstrumentEquipped()
+        {
+            isInstrumentManned = true;
+            UnFadeVisuals();
+        }
+        
+        public void OnInstrumentUnEquipped()
+        {
+            isInstrumentManned = false;
+            if (Passive.isPlaying)
+            {
+                Passive.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+            else
+                FadeVisuals();
+        }
+
         public void CreateNote(float PlayTime, float Duration)
         {
-            TimelineNote note = Instantiate(NodePrefab, transform).GetComponent<TimelineNote>();
+            TimelineNote note = Instantiate(NotePrefab, transform).GetComponent<TimelineNote>();
             note.Init(this, PlayTime, UnitsPerSecond);
             notesAlive.Add(note);
-            ResetSpriteTimer = new Utils.Timer<Image, Sprite>(0.2f, (Im, Sp) => { Im.sprite = Sp; }, Hint, Base);
+            ResetSpriteTimer = new Utils.Timer<Image, Sprite>(0.2f, (Im, Sp) => { Im.sprite = Sp; }, InputHint, Base);
             ResetSpriteTimer.Abort();
         }
 
@@ -50,7 +75,7 @@ namespace Instruments
 
         public void NotePlayed()
         {
-            Hint.sprite = Input;
+            InputHint.sprite = Input;
             ResetSpriteTimer.ResetAndResume();
         }
 
@@ -68,31 +93,67 @@ namespace Instruments
             }
         }
 
-        public void Unfade()
+        [ContextMenu("OnAutomaticPlayStarted")]
+        public void OnAutomaticPlayStarted()
         {
-            Passive.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            FadeVisuals();
+            Passive.Play(true);
         }
 
-        public void Fade()
+        private void FadeVisuals()
         {
-            Passive.Play(true);
+            isVisible = false;
             foreach (TimelineNote n in notesAlive)
             {
-                n.StartCoroutine(n.Fade());
+                n.FadeNote();
             }
-            StartCoroutine(FadeHint());
-        }
 
-        private IEnumerator FadeHint()
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            fadeCoroutine = FadeInputHint();
+            StartCoroutine(fadeCoroutine);
+            
+            IEnumerator FadeInputHint()
+            {
+                yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                    (float StartTime, Color StartColor, Image Image) =>
+                    {
+                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
+                    },
+                    Time.time, InputHint.color, InputHint
+                );
+                InputHint.color = Color.clear;
+            }
+        }
+        
+        public void UnFadeVisuals()
         {
-            yield return new Utils.DoForSeconds<float, Color, Image>(1,
-                (float StartTime, Color StartColor, Image Image) =>
-                {
-                    Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 1 + StartTime - Time.time);
-                },
-                Time.time, Hint.color, Hint
-            );
-            Hint.color = Color.clear;
+            isVisible = true;
+            foreach (TimelineNote n in notesAlive)
+            {
+                n.UnFadeNote();
+            }
+
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            fadeCoroutine = UnFadeInputHint();
+            StartCoroutine(fadeCoroutine);
+            
+            IEnumerator UnFadeInputHint()
+            {
+                yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                    (float StartTime, Color StartColor, Image Image) =>
+                    {
+                        Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 0 + StartTime + Time.time);
+                    },
+                    Time.time, InputHint.color, InputHint
+                );
+                InputHint.color = Color.white;
+            }
         }
     }
 }

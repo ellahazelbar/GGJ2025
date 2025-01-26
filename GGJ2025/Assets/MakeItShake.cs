@@ -5,23 +5,22 @@ public class MakeItShake : MonoBehaviour
 {
     public MMF_Player player;
 
-    private float timer = 3f;
-    private float timerCounter = 0;
+    public uint amountOfBeatsToShakeLevel = 8;
+    private float counter = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        BaseLineBeat.Beat += BaseLineBeatOnBeat;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void BaseLineBeatOnBeat()
     {
-        timerCounter += Time.deltaTime;
-        if (timerCounter >= timer)
+        counter++;
+        if (counter >= amountOfBeatsToShakeLevel)
         {
+            counter = 0;
             player.PlayFeedbacks();
-            timerCounter = 0;
         }
     }
 }

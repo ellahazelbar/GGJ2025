@@ -54,6 +54,7 @@ namespace Instruments
         {
             AudioSource.volume = 0;
             attached = null;
+            Minigame.Deactivate();
         }
 
 		private Vector3 GetWorldPositionOnPlane(Vector3 worldPosition, float z = 0)

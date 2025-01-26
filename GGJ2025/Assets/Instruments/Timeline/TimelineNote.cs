@@ -14,12 +14,19 @@ namespace Instruments
         private float unitsPerSecond;
         public float PlayTime { get; private set; }
         
+        private IEnumerator fadeCoroutine;
+
+        private Color originalColor;
+
+        private bool isVisible = false;
+        
         public void Init(Timeline Timeline, float PlayTime, float UnitsPerSecond)
         {
             im = GetComponent<Image>();
             re = GetComponent<RectTransform>();
             im.sprite = AvailableSprites[Random.Range(0, AvailableSprites.Length)];
-            im.color = Timeline.NoteColor;
+            originalColor = Timeline.NoteColor;
+            im.color = Timeline.isVisible ? originalColor : Color.clear;
             this.PlayTime = PlayTime;
             unitsPerSecond = UnitsPerSecond;
             new Utils.Timer<Timeline, TimelineNote>(PlayTime + 0.8f - Time.time, (Timeline T, TimelineNote N) => { T.Forget(N); }, Timeline, this);
@@ -30,13 +37,37 @@ namespace Instruments
         {
             float timeToPlay = PlayTime - Time.time;
             re.anchoredPosition = new Vector2(0, timeToPlay * unitsPerSecond);
-            Color c = im.color;
-            c.a = AlphaCurve.Evaluate(timeToPlay);
-            im.color = c;
+            if (isVisible)
+            {
+                Color c = im.color;
+                c.a = AlphaCurve.Evaluate(timeToPlay);
+                im.color = c;
+            }
         }
 
-        public IEnumerator Fade()
+        public void FadeNote()
         {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            fadeCoroutine = Fade();
+            StartCoroutine(fadeCoroutine);
+        }
+        
+        public void UnFadeNote()
+        {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }
+            fadeCoroutine = UnFade();
+            StartCoroutine(fadeCoroutine);
+        }
+
+        private IEnumerator Fade()
+        {
+            isVisible = false;
             yield return new Utils.DoForSeconds<float, Color, Image>(1,
                 (float StartTime, Color StartColor, Image Image) =>
                 {
@@ -45,6 +76,19 @@ namespace Instruments
                 Time.time, im.color, im
             );
             im.color = Color.clear;
+        }
+        
+        private IEnumerator UnFade()
+        {
+            isVisible = true;
+            yield return new Utils.DoForSeconds<float, Color, Image>(1,
+                (float StartTime, Color StartColor, Image Image) =>
+                {
+                    Image.color = new Color(StartColor.r, StartColor.g, StartColor.b, 0 + StartTime + Time.time);
+                },
+                Time.time, im.color, im
+            );
+            im.color = originalColor;
         }
     }
 }
