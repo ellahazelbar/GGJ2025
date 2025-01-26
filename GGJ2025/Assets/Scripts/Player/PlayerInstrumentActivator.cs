@@ -45,7 +45,8 @@ namespace Player
 		private void OnDisengage(InputAction.CallbackContext context)
         {
 			Disengage();
-        }
+			_instrumentPointer.Current.GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
+		}
 
 		public void Disengage()
         {
