@@ -7,6 +7,7 @@ namespace Player
 {
 	public class PlayAnimationOnInteract : MonoBehaviour
 	{
+		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Collider2D _collider;
 		[SerializeField] private InstrumentAnimationDefinition _animationDefinition;
 		[SerializeField] private InstrumentAnimator _instrumentAnimator;
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private CharacterStateController _stateController;
@@ -14,6 +15,7 @@ namespace Player
 		[SerializeField, AutoHook(AutoHookSearchArea.Parent)] private Rigidbody2D _rb;
 		[SerializeField, AutoHook(AutoHookSearchArea.Children)] private Flip _flip;
 		[SerializeField] private float _animationDuration = 0.4f;
+		[SerializeField] private LayerMask _layersToIgnoreWhenPlaying;
 
 		private void OnEnable()
 		{
@@ -29,6 +31,7 @@ namespace Player
 
 		private void OnInstrumentActivated(Instrument instrument)
 		{
+			_collider.excludeLayers = _layersToIgnoreWhenPlaying;
 			var sequence = DOTween.Sequence();
 			sequence.Append(_rb.DOMove(instrument.InteractionPosition, _animationDuration).SetEase(Ease.OutSine));
 			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - instrument.InteractionPosition.x);
@@ -50,6 +53,7 @@ namespace Player
 		private void OnInstrumentDisengaged()
 		{
 			_instrumentAnimator.StopInstrumentAnimation();
+			_collider.excludeLayers &= ~_layersToIgnoreWhenPlaying;
 		}
 	}
 }
