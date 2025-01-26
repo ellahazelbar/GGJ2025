@@ -8,7 +8,7 @@ namespace Instruments
         [AutoHook] public AudioSource AudioSource;
         public InstrumentMinigame Minigame;
         public InstrumentType Type;
-        [field: SerializeField] public Transform InteractionSpot { get; private set; }
+        public Transform InteractionSpot => transform;
 
         public AnimationCurve FadeCurve;
 
