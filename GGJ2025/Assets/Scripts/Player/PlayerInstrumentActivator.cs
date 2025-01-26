@@ -17,6 +17,7 @@ namespace Player
 		[SerializeField, AutoHook] private PlayerInstrumentPointer _instrumentPointer;
 
 		public event UnityAction<Instrument> InstrumentActivated;
+		public event UnityAction InstrumentDisengaged;
 
 		private void OnEnable()
 		{
@@ -42,6 +43,7 @@ namespace Player
 			Instrument current = _instrumentPointer.Current;
 			current.SetVisible(true);
 			_character.StateController.State = CharacterStateController.CharState.FreeMovement;
+			InstrumentDisengaged?.Invoke();
 		}
 	}
 }

@@ -14,20 +14,27 @@ namespace Player
 		[SerializeField, AutoHook] private SkeletonAnimation _animator;
 		private int _animationIndex;
 
-		public string StartAnimation { get; set; }
 		public IReadOnlyList<string> PlayAnimations { get; set; }
 		public InstrumentMinigame InstrumentMinigame { get; set; }
 
 		private void OnEnable()
 		{
 			_animationIndex = 0;
-			_animator.state.SetAnimation(1, StartAnimation, false);
 			_character.Input.House.Interact.started += OnNotePlayed;
 		}
 
 		private void OnDisable()
 		{
 			_character.Input.House.Interact.started -= OnNotePlayed;
+		}
+
+		public void PlaySetupAnimation(string startAnimation)
+		{
+			_animator.state.SetAnimation(1, startAnimation, false);
+		}
+
+		public void StopInstrumentAnimation()
+		{
 			_animator.state.SetEmptyAnimation(1, 0.3f);
 		}
 
