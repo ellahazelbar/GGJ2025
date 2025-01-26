@@ -21,8 +21,8 @@ namespace Player
 		private void OnInstrumentActivated(Instrument instrument)
 		{
 			var sequence = DOTween.Sequence();
-			sequence.Append(_rb.DOMove(instrument.InteractionSpot.position, _animationDuration).SetEase(Ease.OutSine));
-			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - instrument.InteractionSpot.position.x);
+			sequence.Append(_rb.DOMove(instrument.InteractionPosition, _animationDuration).SetEase(Ease.OutSine));
+			var flipAnimation = _flip.TryAnimateFlip(instrument.transform.position.x - instrument.InteractionPosition.x);
 			if (flipAnimation != null)
 				sequence.Append(flipAnimation);
 			sequence.OnComplete(() => ShowStartAnimation(instrument));

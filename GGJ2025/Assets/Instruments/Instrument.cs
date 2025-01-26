@@ -8,7 +8,7 @@ namespace Instruments
         [AutoHook] public AudioSource AudioSource;
         public InstrumentMinigame Minigame;
         public InstrumentType Type;
-        public Transform InteractionSpot => transform;
+        public Vector3 InteractionPosition => GetWorldPositionOnPlane(transform.position);
 
         public AnimationCurve FadeCurve;
 
@@ -55,5 +55,14 @@ namespace Instruments
             AudioSource.volume = 0;
             attached = null;
         }
-    }
+
+		private Vector3 GetWorldPositionOnPlane(Vector3 worldPosition, float z = 0)
+		{
+            var camera = Camera.main;
+			Ray ray = camera.ScreenPointToRay(camera.WorldToScreenPoint(worldPosition));
+			Plane xy = new(Vector3.forward, new Vector3(0, 0, z));
+			xy.Raycast(ray, out float distance);
+			return ray.GetPoint(distance);
+		}
+	}
 }
